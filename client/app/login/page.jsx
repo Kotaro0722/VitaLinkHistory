@@ -49,13 +49,16 @@ const SignInSide = () => {
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
+        
         <Grid
           item
-          xs={false}
-          sm={4}
-          md={7}
+          xs={false}//幅600px未満だったら表示しない
+          sm={4}//幅600~899だったら
+          md={7}//900~1200
+          //lg ~1200
+          //xl ~1536
           sx={{
-            backgroundImage:
+            /*backgroundImage:
               "url(https://source.unsplash.com/random?wallpapers)",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
@@ -63,9 +66,10 @@ const SignInSide = () => {
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "center",*/
           }}
-        />
+        ><Typography>
+          <Box color="#1f1e33" lineHeight={10} textAlign="center" fontSize={50} fontStyle="italic">VitaLink</Box></Typography></Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{

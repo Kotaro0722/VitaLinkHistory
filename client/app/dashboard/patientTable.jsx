@@ -85,7 +85,7 @@ const EnhancedTable = () => {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   return (
-    <Paper sx={{ width: "600px", mx: "auto", mt: "200px" }}>
+    <Paper sx={{ width: "600px", mx: "auto", mt: "30px" }}>
       <Table aria-labelledby="tableTitle">
         <TableHead
           sx={{

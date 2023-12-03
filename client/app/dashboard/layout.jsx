@@ -29,6 +29,7 @@ const theme = createTheme({
 });
 
 export default function RootLayout({ children }) {
+  const sidebarWidth = "300px";
   return (
     <html lang="en">
       <head>
@@ -36,7 +37,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <Grid container>
-          <Grid item minWidth="240px">
+          <Grid item minWidth={sidebarWidth}>
             <Paper
               sx={{
                 height: "100vh",
@@ -46,7 +47,9 @@ export default function RootLayout({ children }) {
                 gap: "70px",
               }}
             >
-              <Typography sx={{ fontSize: "50px" }}>VitaLink</Typography>
+              <Typography sx={{ fontSize: "50px", m: "50px" }}>
+                VitaLink
+              </Typography>
               <Box
                 sx={{
                   display: "flex",
@@ -79,7 +82,7 @@ export default function RootLayout({ children }) {
           <Grid
             item
             sx={{
-              width: "calc(100% - 240px)",
+              width: `calc(100% - ${sidebarWidth})`,
             }}
           >
             {children}

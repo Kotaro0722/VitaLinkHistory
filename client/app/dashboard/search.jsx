@@ -14,6 +14,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          p: "8px 7px",
+        },
+      },
+    },
   },
 });
 

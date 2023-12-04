@@ -32,8 +32,8 @@ const Search = ({ data, setData }) => {
   useEffect(() => {
     const newData = data.map((datum) => {
       return (!name || datum.name.includes(name)) &&
-        (!city || city == datum.address.city) &&
-        (!town || town == datum.address.town)
+        (!city || datum.address.city.includes(city)) &&
+        (!town || datum.address.town.includes(town))
         ? {
             id: datum.id,
             name: datum.name,

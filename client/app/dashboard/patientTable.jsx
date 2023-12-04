@@ -2,8 +2,6 @@
 
 import * as React from "react";
 import {
-  Box,
-  Typography,
   Table,
   TableBody,
   TableCell,
@@ -13,64 +11,12 @@ import {
   Paper,
 } from "@mui/material";
 
-const data = [
-  {
-    id: "afgu3yarauh45",
-    name: "田中花子",
-    address: {
-      city: "茅野市",
-      town: "豊平",
-    },
-  },
-  {
-    id: "asafauehfa5",
-    name: "鈴木次郎",
-    address: {
-      city: "茅野市",
-      town: "長倉",
-    },
-  },
-  {
-    id: "gaseritaser",
-    name: "佐藤太郎",
-    address: {
-      city: "茅野市",
-      town: "宮川",
-    },
-  },
-  {
-    id: "gajoeirt",
-    name: "井上太一",
-    address: {
-      city: "茅野市",
-      town: "塚原",
-    },
-  },
-  {
-    id: "saleirlueer",
-    name: "川崎美也子",
-    address: {
-      city: "茅野市",
-      town: "米沢",
-    },
-  },
-  {
-    id: "sakehrerr",
-    name: "本田正敏",
-    address: {
-      city: "諏訪市",
-      town: "四賀",
-    },
-  },
-];
-
 // Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
 // stableSort() brings sort stability to non-modern browsers (notably IE11). If you
 // only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
 // with exampleArray.slice().sort(exampleComparator)
 
-const EnhancedTable = () => {
-  //   const [selected, setSelected] = React.useState([]);
+const PatientTable = ({ data }) => {
   const [page, setPage] = React.useState(0);
   const rowsPerPage = 10;
 
@@ -80,9 +26,7 @@ const EnhancedTable = () => {
     setPage(newPage);
   };
 
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+  const visibleLength = data.filter((datum) => datum.visible).length;
 
   return (
     <Paper sx={{ width: "600px", mx: "auto", mt: "30px" }}>
@@ -109,48 +53,52 @@ const EnhancedTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((datum, index) => {
-            const labelId = `enhanced-table-checkbox-${index}`;
-
-            return (
-              <TableRow
-                hover
-                onClick={(event) => handleClick(event, datum.id)}
-                key={datum.id}
-                sx={{ cursor: "pointer" }}
-              >
-                <TableCell
-                  sx={{
-                    width: "10px",
-                    p: "0px",
-                    border: "0px",
-                  }}
-                ></TableCell>
-                <TableCell
-                  component="td"
-                  id={labelId}
-                  scope="datum"
-                  padding="none"
-                >
-                  {datum.name}
-                </TableCell>
-                <TableCell align="center">{datum.address.city}</TableCell>
-                <TableCell align="center">{datum.address.town}</TableCell>
-                <TableCell
-                  sx={{
-                    width: "10px",
-                    p: "0px",
-                    border: "0px",
-                  }}
-                ></TableCell>
-              </TableRow>
-            );
-          })}
-          {emptyRows > 0 && <TableCell colSpan={6} />}
+          {visibleLength ? (
+            data.map((datum, index) => {
+              return (
+                datum.visible && (
+                  <TableRow
+                    hover
+                    onClick={(event) => handleClick(event, datum.id)}
+                    key={datum.id}
+                    sx={{ cursor: "pointer" }}
+                  >
+                    <TableCell
+                      sx={{
+                        width: "10px",
+                        p: "0px",
+                        border: "0px",
+                      }}
+                    ></TableCell>
+                    <TableCell component="td" scope="datum" padding="none">
+                      {datum.name}
+                    </TableCell>
+                    <TableCell align="center">{datum.address.city}</TableCell>
+                    <TableCell align="center">{datum.address.town}</TableCell>
+                    <TableCell
+                      sx={{
+                        width: "10px",
+                        p: "0px",
+                        border: "0px",
+                      }}
+                    ></TableCell>
+                  </TableRow>
+                )
+              );
+            })
+          ) : (
+            <TableRow>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell align="center">該当する患者はいません</TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
       <TablePagination
-        rowsPerPageOptions={[5, 10, 25]}
+        rowsPerPageOptions={[]}
         component="div"
         count={data.length}
         rowsPerPage={rowsPerPage}
@@ -161,4 +109,4 @@ const EnhancedTable = () => {
   );
 };
 
-export default EnhancedTable;
+export default PatientTable;

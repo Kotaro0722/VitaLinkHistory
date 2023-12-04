@@ -39,12 +39,14 @@ const Search = ({ data, setData }) => {
             name: datum.name,
             address: datum.address,
             visible: true,
+            birth: datum.birth,
           }
         : {
             id: datum.id,
             name: datum.name,
             address: datum.address,
             visible: false,
+            birth: datum.birth,
           };
     });
     setData(newData);

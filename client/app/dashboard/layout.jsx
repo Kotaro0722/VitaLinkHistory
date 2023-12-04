@@ -44,39 +44,33 @@ export default function RootLayout({ children }) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                justifyContent: "space-around",
                 gap: "70px",
               }}
             >
-              <Typography sx={{ fontSize: "50px", m: "50px" }}>
+              <Typography sx={{ fontSize: "50px", m: "50px", mt: "0px" }}>
                 VitaLink
               </Typography>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "20px",
-                }}
-              >
-                <ThemeProvider theme={theme}>
+              <ThemeProvider theme={theme}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "20px",
+                  }}
+                >
                   <Link href="/dashboard">
                     <Button variant="contained">患者情報一覧</Button>
                   </Link>
                   <Link href="/dashboard">
                     <Button variant="contained">アカウント情報確認</Button>
                   </Link>
-                  <Link href="/dashboard">
-                    <Button
-                      variant="contained"
-                      sx={{
-                        mt: "240px",
-                      }}
-                    >
-                      Logout
-                    </Button>
-                  </Link>
-                </ThemeProvider>
-              </Box>
+                </Box>
+                <Link href="/dashboard">
+                  <Button variant="contained">Logout</Button>
+                </Link>
+              </ThemeProvider>
             </Paper>
           </Grid>
           <Grid

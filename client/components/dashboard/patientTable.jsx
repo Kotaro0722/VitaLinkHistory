@@ -14,12 +14,17 @@ import PaientModal from "./modal";
 
 const PatientTable = ({ data }) => {
   const [page, setPage] = useState(0);
+  const [showPerson, setShowPerson] = useState(0);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const rowsPerPage = 10;
-
-  const handleClick = (event) => {};
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
+  };
+
+  const handleRowClick = (index) => {
+    setShowPerson(index);
+    setModalIsOpen(true);
   };
 
   const visibleLength = data.filter((datum) => datum.visible).length;
@@ -56,7 +61,7 @@ const PatientTable = ({ data }) => {
                   datum.visible && (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, datum.id)}
+                      onClick={() => handleRowClick(index)}
                       key={datum.id}
                       sx={{ cursor: "pointer" }}
                     >
@@ -103,7 +108,12 @@ const PatientTable = ({ data }) => {
           onPageChange={handleChangePage}
         />
       </Paper>
-      <PaientModal IsActive={true} />
+      <PaientModal
+        IsActive={modalIsOpen}
+        setIsActive={setModalIsOpen}
+        data={data}
+        index={showPerson}
+      />
     </>
   );
 };

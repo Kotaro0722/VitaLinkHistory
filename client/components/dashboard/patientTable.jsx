@@ -10,11 +10,11 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import useWindowSize from "@/hooks/useWindowSize";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const PatientTable = ({ data }) => {
   const [page, setPage] = useState(0);
-  const [width, height] = useWindowSize();
+  const { width, height } = useWindowSize();
   const rowsPerPage = 10;
 
   useEffect(() => {

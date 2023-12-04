@@ -10,18 +10,11 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { useWindowSize } from "@uidotdev/usehooks";
 import PaientModal from "./modal";
 
 const PatientTable = ({ data }) => {
   const [page, setPage] = useState(0);
-  const { width, height } = useWindowSize();
   const rowsPerPage = 10;
-
-  useEffect(() => {
-    console.log(width);
-    console.log(height);
-  }, []);
 
   const handleClick = (event) => {};
 

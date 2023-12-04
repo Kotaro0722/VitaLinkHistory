@@ -48,9 +48,7 @@ export default function RootLayout({ children }) {
                 gap: "70px",
               }}
             >
-              <Typography sx={{ fontSize: "50px", m: "50px", mt: "0px" }}>
-                VitaLink
-              </Typography>
+              <Typography sx={{ fontSize: "50px" }}>VitaLink</Typography>
               <ThemeProvider theme={theme}>
                 <Box
                   sx={{

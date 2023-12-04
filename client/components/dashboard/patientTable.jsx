@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -10,15 +10,17 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
+import useWindowSize from "@/hooks/useWindowSize";
 
 const PatientTable = ({ data }) => {
-  const [page, setPage] = React.useState(0);
+  const [page, setPage] = useState(0);
+  const [width, height] = useWindowSize();
   const rowsPerPage = 10;
+
+  useEffect(() => {
+    console.log(width);
+    console.log(height);
+  }, []);
 
   const handleClick = (event) => {};
 

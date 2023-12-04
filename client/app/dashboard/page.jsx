@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
-import PatientTable from "./patientTable";
-import Search from "./search";
+import PatientTable from "../../components/dashboard/patientTable";
+import Search from "../../components/dashboard/search";
 
 const Dashboard = () => {
   const [data, setData] = useState([

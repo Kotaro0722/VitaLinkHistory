@@ -15,6 +15,11 @@ const Dashboard = () => {
         town: "豊平",
       },
       visible: true,
+      birth: {
+        year: "1960",
+        month: "4",
+        day: "6",
+      },
     },
     {
       id: "asafauehfa5",
@@ -24,6 +29,11 @@ const Dashboard = () => {
         town: "長倉",
       },
       visible: true,
+      birth: {
+        year: "1953",
+        month: "7",
+        day: "30",
+      },
     },
     {
       id: "gaseritaser",
@@ -33,6 +43,11 @@ const Dashboard = () => {
         town: "宮川",
       },
       visible: true,
+      birth: {
+        year: "1963",
+        month: "10",
+        day: "11",
+      },
     },
     {
       id: "gajoeirt",
@@ -42,6 +57,11 @@ const Dashboard = () => {
         town: "塚原",
       },
       visible: true,
+      birth: {
+        year: "1952",
+        month: "11",
+        day: "5",
+      },
     },
     {
       id: "saleirlueer",
@@ -51,6 +71,11 @@ const Dashboard = () => {
         town: "米沢",
       },
       visible: true,
+      birth: {
+        year: "1945",
+        month: "8",
+        day: "3",
+      },
     },
     {
       id: "sakehrerr",
@@ -60,6 +85,11 @@ const Dashboard = () => {
         town: "四賀",
       },
       visible: true,
+      birth: {
+        year: "1959",
+        month: "6",
+        day: "25",
+      },
     },
   ]);
   return (

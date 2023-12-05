@@ -29,7 +29,7 @@ const theme = createTheme({
 });
 
 export default function RootLayout({ children }) {
-  const sidebarWidth = "300px";
+  const sidebarWidth = "250px";
   return (
     <html lang="en">
       <head>
@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
                     <Button variant="contained">患者情報一覧</Button>
                   </Link>
                   <Link href="/dashboard">
-                    <Button variant="contained">アカウント情報確認</Button>
+                    <Button variant="contained">アカウント情報</Button>
                   </Link>
                 </Box>
                 <Link href="/dashboard">

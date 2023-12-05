@@ -29,7 +29,7 @@ const theme = createTheme({
         root: {
           border: "3px solid black",
           borderRadius: "10px",
-          fontSize: "30px",
+          fontSize: "40px",
           textAlign: "center",
           backgroundColor: "#0085FF",
           alignItems: "center",

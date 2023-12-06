@@ -109,7 +109,7 @@ const SignInSide = () => {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="ユーザー名"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -122,7 +122,7 @@ const SignInSide = () => {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="パスワード"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -133,17 +133,17 @@ const SignInSide = () => {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Login
+                ログイン
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
-                    Forgot password?
+                    パスワードを忘れた方
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    {"新規登録の方はこちら"}
                   </Link>
                 </Grid>
               </Grid>

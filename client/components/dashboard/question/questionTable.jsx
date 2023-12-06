@@ -9,11 +9,12 @@ import {
   TablePagination,
   TableRow,
   Paper,
+  Box,
 } from "@mui/material";
-import { Check, CheckBox } from "@mui/icons-material";
+import exclamation from "@/public/img/exclamation.svg";
 // import PaientModal from "./modal";
 
-const QuestionTable = ({ data }) => {
+const QuestionTable = ({ data, setData }) => {
   const [page, setPage] = useState(0);
   const [showPerson, setShowPerson] = useState(0);
   const rowsPerPage = 10;
@@ -22,94 +23,88 @@ const QuestionTable = ({ data }) => {
     setPage(newPage);
   };
 
-  const handleRowClick = (index) => {
-    setShowPerson(index);
-  };
-
-  const visibleLength = data.length;
-
   return (
-    <>
-      <Paper sx={{ width: "80%", mx: "auto", mt: "30px" }}>
-        <Table aria-labelledby="tableTitle">
-          <TableHead
+    <Paper sx={{ width: "80%", mx: "auto", mt: "30px" }}>
+      <Table aria-labelledby="tableTitle">
+        <TableHead
+          sx={{
+            backgroundColor: "#4169e1",
+          }}
+        >
+          <TableRow
             sx={{
-              backgroundColor: "#4169e1",
+              backgroundColor: "#d3d3d3",
             }}
           >
-            <TableRow
-              sx={{
-                backgroundColor: "#d3d3d3",
-              }}
-            >
-              <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
-              <TableCell sx={{ p: "8px" }}></TableCell>
-              <TableCell sx={{ p: "8px" }}>患者名</TableCell>
-              <TableCell sx={{ p: "8px" }} align="center">
-                投稿日
-              </TableCell>
-              <TableCell sx={{ p: "8px" }} align="center">
-                質問内容
-              </TableCell>
-              <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {visibleLength ? (
-              data.map((datum, index) => {
-                return (
-                  <TableRow
-                    hover
-                    onClick={() => handleRowClick(index)}
-                    key={datum.id}
-                    sx={{ cursor: "pointer" }}
-                  >
-                    <TableCell
-                      sx={{
-                        width: "10px",
-                        p: "0px",
-                        border: "0px",
-                      }}
-                    ></TableCell>
-                    <TableCell align="center">
-                      {datum.isRead && <img></img>}
-                    </TableCell>
-                    <TableCell component="td" scope="datum" padding="none">
-                      {datum.name}
-                    </TableCell>
-                    <TableCell align="center">{datum.post_date}</TableCell>
-                    <TableCell align="left">{datum.content}</TableCell>
-                    <TableCell
-                      sx={{
-                        width: "10px",
-                        p: "0px",
-                        border: "0px",
-                      }}
-                    ></TableCell>
-                  </TableRow>
-                );
-              })
-            ) : (
-              <TableRow>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
-                <TableCell align="center">該当する患者はいません</TableCell>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
+            <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
+            <TableCell sx={{ p: "8px" }}></TableCell>
+            <TableCell sx={{ p: "8px" }}>患者名</TableCell>
+            <TableCell sx={{ p: "8px" }} align="center">
+              投稿日
+            </TableCell>
+            <TableCell sx={{ p: "8px" }} align="center">
+              質問内容
+            </TableCell>
+            <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((datum, index) => {
+            const handleRowClick = (index) => {
+              // const newData = [];
+              // setData(newData);
+              setShowPerson(index);
+            };
+
+            return (
+              <TableRow
+                hover
+                onClick={handleRowClick}
+                key={datum.id}
+                sx={{ cursor: "pointer" }}
+              >
+                <TableCell
+                  sx={{
+                    width: "10px",
+                    p: "0px",
+                    border: "0px",
+                  }}
+                ></TableCell>
+                <TableCell align="center">
+                  {!datum.isRead && (
+                    <img
+                      src={exclamation.src}
+                      alt="notRead"
+                      style={{ width: "20px" }}
+                    />
+                  )}
+                </TableCell>
+                <TableCell component="td" scope="datum" padding="none">
+                  {datum.name}
+                </TableCell>
+                <TableCell align="center">{datum.post_date}</TableCell>
+                <TableCell align="left">{datum.content}</TableCell>
+                <TableCell
+                  sx={{
+                    width: "10px",
+                    p: "0px",
+                    border: "0px",
+                  }}
+                ></TableCell>
               </TableRow>
-            )}
-          </TableBody>
-        </Table>
-        <TablePagination
-          rowsPerPageOptions={[]}
-          component="div"
-          count={data.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-        />
-      </Paper>
-    </>
+            );
+          })}
+        </TableBody>
+      </Table>
+      <TablePagination
+        rowsPerPageOptions={[]}
+        component="div"
+        count={data.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+      />
+    </Paper>
   );
 };
 

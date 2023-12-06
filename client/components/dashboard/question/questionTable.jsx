@@ -10,6 +10,7 @@ import {
   TableRow,
   Paper,
   Box,
+  Typography,
 } from "@mui/material";
 import exclamation from "@/public/img/exclamation.svg";
 // import PaientModal from "./modal";
@@ -37,8 +38,7 @@ const QuestionTable = ({ data, setData }) => {
             }}
           >
             <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
-            <TableCell sx={{ p: "8px" }}></TableCell>
-            <TableCell sx={{ p: "8px" }}>患者名</TableCell>
+            <TableCell sx={{ p: "8px", pl: "30px" }}>患者名</TableCell>
             <TableCell sx={{ p: "8px" }} align="center">
               投稿日
             </TableCell>
@@ -50,9 +50,11 @@ const QuestionTable = ({ data, setData }) => {
         </TableHead>
         <TableBody>
           {data.map((datum, index) => {
-            const handleRowClick = (index) => {
-              // const newData = [];
-              // setData(newData);
+            const handleRowClick = () => {
+              const newData = data;
+              newData[index].isRead = true;
+              setData(newData);
+              console.log(newData);
               setShowPerson(index);
             };
 
@@ -70,17 +72,23 @@ const QuestionTable = ({ data, setData }) => {
                     border: "0px",
                   }}
                 ></TableCell>
-                <TableCell align="center">
-                  {!datum.isRead && (
-                    <img
-                      src={exclamation.src}
-                      alt="notRead"
-                      style={{ width: "20px" }}
-                    />
-                  )}
-                </TableCell>
                 <TableCell component="td" scope="datum" padding="none">
-                  {datum.name}
+                  <Box
+                    sx={{
+                      width: "fit-content",
+                      float: "left",
+                      mr: "10px",
+                    }}
+                  >
+                    {!datum.isRead && (
+                      <img
+                        src={exclamation.src}
+                        alt="notRead"
+                        style={{ width: "20px" }}
+                      />
+                    )}
+                  </Box>
+                  <Typography>{datum.name}</Typography>
                 </TableCell>
                 <TableCell align="center">{datum.post_date}</TableCell>
                 <TableCell align="left">{datum.content}</TableCell>

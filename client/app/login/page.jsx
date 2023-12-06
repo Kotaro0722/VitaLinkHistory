@@ -66,7 +66,7 @@ const SignInSide = () => {
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: "cover",
-            backgroundPosition: "center",*/
+            backgroundPosition: "center",111*/
           }}
         ><Typography>
           <Box color="#1f1e33" lineHeight={10} textAlign="center" fontSize={50} fontStyle="italic">VitaLink</Box></Typography></Grid>

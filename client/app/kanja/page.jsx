@@ -14,7 +14,6 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 
 function Copyright(props) {
   
@@ -33,7 +32,6 @@ export default function SignInSide() {
       password: data.get("password"),
     });
   };
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -56,9 +54,8 @@ export default function SignInSide() {
               sx={{ mt: 1 }}
             >
               <Button
-                type="submit"
-                size="large"
-                variant="contained"
+              size="large"
+              variant="contained"
                 sx={{ mt: 5,
                    mb: 7,
                    width:"400px",
@@ -69,9 +66,9 @@ export default function SignInSide() {
                   backgroundColor:"white",
                   backgroundPosition:"bottom",
                   backgroundSize:"200px",
-                color:"green",
-              fontSize:"50px",}}
-                 
+                color:"red",
+              fontSize:"50px",
+            border : "5px solid black",}}
               >
                 患者の記録
               </Button>
@@ -85,8 +82,9 @@ export default function SignInSide() {
                    width:"400px",
                    height:"100px",
                    backgroundColor:"white",
-                   color:"green",
-                   fontSize:"30px" }}
+                   color:"red",
+                   fontSize:"30px",
+                   border : "5px solid black" }}
                 
               >
                患者からの質問
@@ -99,5 +97,6 @@ export default function SignInSide() {
         </Grid>
       </Grid>
     </ThemeProvider>
+    
   );
 }

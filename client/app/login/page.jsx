@@ -5,8 +5,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
@@ -15,7 +13,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
+const Copyright = (props) => {
   return (
     <Typography
       variant="body2"
@@ -31,13 +29,13 @@ function Copyright(props) {
       {"."}
     </Typography>
   );
-}
+};
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
-export default function SignInSide() {
+const SignInSide = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -51,13 +49,17 @@ export default function SignInSide() {
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
+
         <Grid
           item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage:
+          xs={false} //幅600px未満だったら表示しない
+          sm={4} //幅600~899だったら
+          md={7} //900~1200
+          //lg ~1200
+          //xl ~1536
+          sx={
+            {
+              /*backgroundImage:
               "url(https://source.unsplash.com/random?wallpapers)",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
@@ -65,13 +67,25 @@ export default function SignInSide() {
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+            backgroundPosition: "center",111*/
+            }
+          }
+        >
+          <Typography
+            color="#1f1e33"
+            lineHeight={10}
+            textAlign="center"
+            fontSize={50}
+            fontStyle="italic"
+          >
+            VitaLink
+          </Typography>
+        </Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: 8,
+              mt: "145px",
+              mb: 8,
               mx: 4,
               display: "flex",
               flexDirection: "column",
@@ -82,37 +96,36 @@ export default function SignInSide() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Login
             </Typography>
             <Box
               component="form"
               noValidate
               onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
+              sx={{ mt: 1, width: "100%" }}
             >
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="ユーザー名"
                 name="email"
                 autoComplete="email"
                 autoFocus
+                sx={{
+                  borderRadius: "10px",
+                }}
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="パスワード"
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
               />
               <Button
                 type="submit"
@@ -120,25 +133,26 @@ export default function SignInSide() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                ログイン
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
-                    Forgot password?
+                    パスワードを忘れた方
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    {"新規登録の方はこちら"}
                   </Link>
                 </Grid>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
         </Grid>
       </Grid>
     </ThemeProvider>
   );
-}
+};
+
+export default SignInSide;

@@ -15,9 +15,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
-  
-}
+function Copyright(props) {}
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -34,70 +32,102 @@ export default function SignInSide() {
   };
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: "200vh" }}>
+      <Grid
+        container
+        component="main"
+        sx={{ height: "100vh", backgroundColor: "white" }}
+      >
         {/* <CssBaseline /> */}
         {/* <Grid item xs={12} sm={20} md={5} component={Paper} elevation={6} square> */}
+        <Box
+          sx={{
+            display: "flow",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <Box
-            sx={{
-              display: "flow",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-            
+            // component="form"
+            // noValidate
+            onSubmit={handleSubmit}
+            sx={{ display: "flex", padding: "9vh" }}
           >
             <Box
-              // component="form"
-              // noValidate
-              onSubmit={handleSubmit}
-              sx={{ display:"flex" }}
+              sx={{
+                mt: 5,
+                mb: 7,
+                width: "30vw",
+                height: "70vh",
+                backgroundImage: "url(https://pictogram2.com/p/p0358/i/tn.png)",
+                backgroundRepeat: "no-repeat",
+                backgroundColor: "white",
+                backgroundPosition: "bottom",
+                backgroundSize: "250px",
+                color: "green",
+                textAlign: "center",
+                fontSize: "40px",
+                border: "3px solid black",
+                margin: "2vw",
+                lineHeight: "30vh",
+              }}
             >
-              <Box
-                sx={{ mt: 5,
-                   mb: 7,
-                   width:"30vw",
-                   height:"70vh",
-                   backgroundImage:
-                   "url(https://pictogram2.com/p/p0358/i/tn.png)", 
-                   backgroundRepeat: "no-repeat",
-                  backgroundColor:"yellow",
-                  backgroundPosition:"bottom",
-                  backgroundSize:"250px",
-                color:"green",
-                textAlign:"center",
-              fontSize:"50px",
-            border : "5px solid black",}}
-              >
-                患者の記録
-              </Box>
-              <Box
-                type="submit"
-                fullWidth
-                size="large"
-                variant="contained"
-                sx={{ mt: 5,
-                   mb: 7,
-                   width:"25vw",
-                   height:"70vh",
-                   backgroundImage:
-                   "url(https://i.pinimg.com/originals/c4/e5/7c/c4e57ccc046cfbb013988447c7c7b59a.png)",
-                   backgroundRepeat: "no-repeat", 
-                   backgroundPosition:"bottom",
-                   backgroundSize:"250px",
-                   backgroundColor:"yellow",
-                   color:"green",
-                   fontSize:"30px",
-                   textAlign:"center",
-                   border : "5px solid black" }}
-                
-              >
-               患者からの質問
-
-              </Box>
+              患者の記録
+            </Box>
+            <Box
+              type="submit"
+              fullWidth
+              size="large"
+              variant="contained"
+              sx={{
+                mt: 5,
+                mb: 7,
+                width: "25vw",
+                height: "70vh",
+                backgroundImage:
+                  "url(https://i.pinimg.com/originals/c4/e5/7c/c4e57ccc046cfbb013988447c7c7b59a.png)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "bottom",
+                backgroundSize: "250px",
+                backgroundColor: "white",
+                color: "green",
+                fontSize: "40px",
+                textAlign: "center",
+                border: "3px solid black",
+                margin: "2vw",
+                lineHeight: "30vh",
+              }}
+            >
+              患者からの質問
+            </Box>
+            <Box
+              type="submit"
+              fullWidth
+              size="large"
+              variant="contained"
+              sx={{
+                mt: 5,
+                mb: 7,
+                width: "25vw",
+                height: "70vh",
+                backgroundImage: "url(https://pictogram2.com/p/p0168/i/tn.png)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "bottom",
+                backgroundSize: "250px",
+                backgroundColor: "white",
+                color: "green",
+                fontSize: "40px",
+                textAlign: "center",
+                border: "3px solid black",
+                margin: "2vw",
+                lineHeight: "30vh",
+              }}
+            >
+              相談所
             </Box>
           </Box>
+        </Box>
         {/* </Grid> */}
       </Grid>
     </ThemeProvider>
-    
   );
 }

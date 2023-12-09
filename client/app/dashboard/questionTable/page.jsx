@@ -58,14 +58,16 @@ const Question = () => {
         sx={{
           width: "100%",
           height: "100vh",
-          backgroundColor: "#9BC3FF",
+          backgroundColor: "white",
         }}
       >
         <Typography
           sx={{
             fontSize: "45px",
-            pt: "20px",
-            pl: "20px",
+            p: "20px",
+            textAlign: "center",
+            backgroundColor: "#1C8C42",
+            color: "white",
           }}
         >
           患者からの質問

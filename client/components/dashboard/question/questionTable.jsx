@@ -25,7 +25,7 @@ const QuestionTable = ({ data, setData }) => {
   };
 
   return (
-    <Paper sx={{ width: "80%", mx: "auto", mt: "30px" }}>
+    <Paper sx={{ width: "80%", mx: "auto", mt: "30px", maxWidth: "960px" }}>
       <Table aria-labelledby="tableTitle">
         <TableHead
           sx={{
@@ -54,7 +54,6 @@ const QuestionTable = ({ data, setData }) => {
               const newData = data;
               newData[index].isRead = true;
               setData(newData);
-              console.log(newData);
               setShowPerson(index);
             };
 
@@ -63,7 +62,7 @@ const QuestionTable = ({ data, setData }) => {
                 hover
                 onClick={handleRowClick}
                 key={datum.id}
-                sx={{ cursor: "pointer" }}
+                sx={{ cursor: "pointer", position: "relative" }}
               >
                 <TableCell
                   sx={{
@@ -84,11 +83,11 @@ const QuestionTable = ({ data, setData }) => {
                       <img
                         src={exclamation.src}
                         alt="notRead"
-                        style={{ width: "20px" }}
+                        style={{ width: "20px", position: "absolute" }}
                       />
                     )}
                   </Box>
-                  <Typography>{datum.name}</Typography>
+                  <Typography sx={{ pl: "30px" }}>{datum.name}</Typography>
                 </TableCell>
                 <TableCell align="center">{datum.post_date}</TableCell>
                 <TableCell align="left">{datum.content}</TableCell>

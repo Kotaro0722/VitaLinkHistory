@@ -73,7 +73,7 @@ const SignInSide = () => {
         >
           <Typography
             color="#1f1e33"
-            lineHeight={10}
+            lineHeight={11}
             textAlign="center"
             fontSize={50}
             fontStyle="italic"

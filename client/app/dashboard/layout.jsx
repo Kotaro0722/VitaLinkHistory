@@ -46,6 +46,7 @@ export default function RootLayout({ children }) {
                 alignItems: "center",
                 justifyContent: "space-around",
                 gap: "70px",
+                backgroundColor: "whitesmoke",
               }}
             >
               <Typography sx={{ fontSize: "50px" }}>VitaLink</Typography>

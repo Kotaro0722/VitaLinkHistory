@@ -48,7 +48,7 @@ const QuestionTable = ({ data, setData }) => {
   });
 
   return (
-    <Grid
+    <Box
       sx={{
         width: "80%",
         mx: "auto",
@@ -61,6 +61,12 @@ const QuestionTable = ({ data, setData }) => {
     >
       <ThemeProvider theme={theme}>
         {data.map((datum, index) => {
+          const handleRowClick = () => {
+            const newData = data;
+            newData[index].isRead = true;
+            setData(newData);
+            setShowPerson(index);
+          };
           return (
             <Box
               sx={{
@@ -68,11 +74,13 @@ const QuestionTable = ({ data, setData }) => {
                 border: "5px solid black",
                 borderRadius: "15px",
                 display: "flex",
-                justifyContent: "space-around",
+                justifyContent: "space-between",
                 gap: "40px",
                 py: "2px",
+                cursor: "pointer",
               }}
               key={datum.id}
+              onClick={handleRowClick}
             >
               {!datum.isRead && (
                 <img
@@ -81,14 +89,14 @@ const QuestionTable = ({ data, setData }) => {
                   style={{
                     width: "45px",
                     position: "absolute",
-                    top: "7px",
-                    left: "5px",
+                    top: "13px",
+                    left: "20px",
                   }}
                 />
               )}
               <Typography
                 sx={{
-                  ml: "30px",
+                  ml: "85px",
                   lineHeight: "70px",
                   fontSize: "60px",
                 }}
@@ -99,10 +107,13 @@ const QuestionTable = ({ data, setData }) => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  mr: "30px",
                 }}
               >
-                <img src={clock.src} alt="clock" style={{ width: "20px" }} />
-                <Typography>二日前</Typography>
+                <img src={clock.src} alt="clock" style={{ width: "30px" }} />
+                <Typography sx={{ fontSize: "25px" }}>二日前</Typography>
               </Box>
             </Box>
           );
@@ -199,7 +210,7 @@ const QuestionTable = ({ data, setData }) => {
           onPageChange={handleChangePage}
         /> */}
       </ThemeProvider>
-    </Grid>
+    </Box>
   );
 };
 

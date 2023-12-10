@@ -3,6 +3,7 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import Chat from "@/components/chat/chat";
+import TextInput from "@/components/chat/textInput";
 
 const Page = ({ params }) => {
   const [quesitionList, setQuestionList] = useState([
@@ -91,6 +92,7 @@ const Page = ({ params }) => {
       {chatHistory.map((ch) => {
         return <Chat text={ch.content} isMine={ch.isPatient} />;
       })}
+      <TextInput />
     </Box>
   );
 };

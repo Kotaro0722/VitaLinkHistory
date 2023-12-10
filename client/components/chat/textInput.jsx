@@ -4,7 +4,12 @@ const TextInput = () => {
   return (
     <TextField
       id="outlined-basic"
-      sx={{ width: "100%", backgroundColor: "white" }}
+      sx={{
+        width: "100%",
+        backgroundColor: "white",
+        position: "fixed",
+        bottom: 0,
+      }}
     />
   );
 };

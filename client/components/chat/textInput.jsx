@@ -1,6 +1,8 @@
 import { TextField } from "@mui/material";
+import { useRef } from "react";
 
 const TextInput = () => {
+  const textRef = useRef();
   return (
     <TextField
       id="outlined-basic"
@@ -10,6 +12,7 @@ const TextInput = () => {
         position: "fixed",
         bottom: 0,
       }}
+      ref={textRef}
     />
   );
 };

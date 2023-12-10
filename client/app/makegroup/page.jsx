@@ -35,7 +35,7 @@ export default function SignInSide() {
       <Grid
         container
         component="main"
-        sx={{ height: "200vh", backgroundColor: "white" }}
+        sx={{ height: "300vh", backgroundColor: "white" }}
       >
         {/* <CssBaseline /> */}
         {/* <Grid item xs={12} sm={20} md={5} component={Paper} elevation={6} square> */}
@@ -70,7 +70,27 @@ export default function SignInSide() {
                 lineHeight: "20vh",
               }}
             >
-              医師・薬剤師
+              グループ作成
+            </Box>
+            <Box
+              sx={{
+                mt: 5,
+                mb: 7,
+                width: "80vw",
+                height: "20vh",
+                backgroundImage: "url()",
+                backgroundRepeat: "no-repeat",
+                backgroundColor: "blue",
+                backgroundPosition: "bottom",
+                backgroundSize: "250px",
+
+                color: "white",
+                textAlign: "center",
+                fontSize: "40px",
+                lineHeight: "20vh",
+              }}
+            >
+              選択してください
             </Box>
             <Box
               sx={{

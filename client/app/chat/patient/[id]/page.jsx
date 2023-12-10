@@ -2,9 +2,9 @@
 
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import chat from "@/components/chat/chat";
+import Chat from "@/components/chat/chat";
 
-const Chat = ({ params }) => {
+const Page = ({ params }) => {
   const [quesitionList, setQuestionList] = useState([
     {
       id: "afgu3yarauh45",
@@ -49,7 +49,29 @@ const Chat = ({ params }) => {
       isRead: false,
     },
   ]);
-  const questionHistory = [{}];
+  const chatHistory = [
+    {
+      isPatient: true,
+      post_date: "2023/12/10-12:00",
+      content: "腰を痛めて歩けません",
+    },
+    {
+      isPatient: false,
+      post_date: "2023/12/10-12:00",
+      content: "一度病院へいらしてください",
+    },
+    {
+      isPatient: true,
+      post_date: "2023/12/10-12:00",
+      content:
+        "明日行きます。明日行きます。明日行きます。明日行きます。明日行きます。明日行きます。明日行きます。",
+    },
+    {
+      isPatient: true,
+      post_date: "2023/12/10-12:00",
+      content: "腰を痛めて歩けません",
+    },
+  ];
   const id = params.id;
   const patientData = quesitionList.filter((datum) => datum.id == id)[0];
   console.log(patientData);
@@ -61,12 +83,16 @@ const Chat = ({ params }) => {
           color: "white",
           textAlign: "center",
           fontSize: "30px",
+          mb: "20px",
         }}
       >
         {patientData.name}さん
       </Typography>
+      {chatHistory.map((ch) => {
+        return <Chat text={ch.content} isMine={ch.isPatient} />;
+      })}
     </Box>
   );
 };
 
-export default Chat;
+export default Page;

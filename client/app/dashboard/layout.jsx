@@ -46,6 +46,7 @@ export default function RootLayout({ children }) {
                 alignItems: "center",
                 justifyContent: "space-around",
                 gap: "70px",
+                backgroundColor: "whitesmoke",
               }}
             >
               <Typography sx={{ fontSize: "50px" }}>VitaLink</Typography>
@@ -63,6 +64,9 @@ export default function RootLayout({ children }) {
                   </Link>
                   <Link href="/dashboard">
                     <Button variant="contained">アカウント情報</Button>
+                  </Link>
+                  <Link href="/dashboard/questionTable">
+                    <Button variant="contained">患者からの質問</Button>
                   </Link>
                 </Box>
                 <Link href="/dashboard">

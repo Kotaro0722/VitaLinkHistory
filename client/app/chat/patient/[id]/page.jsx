@@ -75,7 +75,7 @@ const Page = ({ params }) => {
   ];
   const id = params.id;
   const patientData = quesitionList.filter((datum) => datum.id == id)[0];
-  console.log(patientData);
+  // console.log(patientData);
   return (
     <Box sx={{ backgroundColor: "#B1D0FF", height: "100vh" }}>
       <Typography
@@ -89,8 +89,8 @@ const Page = ({ params }) => {
       >
         {patientData.name}さん
       </Typography>
-      {chatHistory.map((ch) => {
-        return <Chat text={ch.content} isMine={ch.isPatient} />;
+      {chatHistory.map((ch, index) => {
+        return <Chat text={ch.content} isMine={ch.isPatient} key={index} />;
       })}
       <TextInput />
     </Box>

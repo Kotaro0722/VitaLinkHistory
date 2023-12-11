@@ -2,70 +2,90 @@
     {
         "id" : "1", 
         "name" : "田中太郎", 
-        "birthday" : "01/01",
+        "birthday_year" : "2000",
+        "birthday_month" : "01",
+        "birthday_day" : "01",
         "city" : "茅野", 
         "area" : "豊平"
     },
     {
         "id" : "2", 
         "name" : "佐藤凛", 
-        "birthday" : "02/02",
+        "birthday_year" : "2003",
+        "birthday_month" : "02",
+        "birthday_day" : "02",
         "city" : "岡谷", 
         "area" : "長地"
     },
     {
         "id" : "3", 
         "name" : "鈴木碧", 
-        "birthday" : "03/03",
+        "birthday_year" : "2001",
+        "birthday_month" : "03",
+        "birthday_day" : "03",
         "city" : "茅野", 
         "area" : "金沢"
     },
     {
         "id" : "4", 
         "name" : "高橋律", 
-        "birthday" : "04/04",
+        "birthday_year" : "2002",
+        "birthday_month" : "04",
+        "birthday_day" : "04",
         "city" : "松本", 
         "area" : "旭"
     },
     {
         "id" : "5", 
         "name" : "伊藤結愛", 
-        "birthday" : "05/05",
+        "birthday_year" : "2000",
+        "birthday_month" : "05",
+        "birthday_day" : "05",
         "city" : "岡谷", 
         "area" : "今井"
     },
     {
         "id" : "6", 
         "name" : "渡邊凪", 
-        "birthday" : "06/06",
+        "birthday_year" : "1998",
+        "birthday_month" : "06",
+        "birthday_day" : "06",
         "city" : "諏訪", 
         "area" : "大手"
     },
     {
         "id" : "7", 
         "name" : "山本澪", 
-        "birthday" : "07/07",
+        "birthday_year" : "2001",
+        "birthday_month" : "07",
+        "birthday_day" : "07",
         "city" : "塩尻", 
         "area" : "広岡"
     },
     {
         "id" : "8", 
         "name" : "中村心春", 
-        "birthday" : "08/08",
+        "birthday_year" : "2003",
+        "birthday_month" : "08",
+        "birthday_day" : "08",
         "city" : "松本", 
         "area" : "県"
     },
     {
         "id" : "9", 
         "name" : "小林蓮", 
-        "birthday" : "09/09",
+        "birthday_year" : "1999",
+        "birthday_month" : "09",
+        "birthday_day" : "09",
         "city" : "茅野", 
         "area" : "玉川"
     },
     {
         "id" : "10", 
         "name" : "加藤彩", 
-        "birthday" : "10/10",
+        "birthday_year" : "1990",
+        "birthday_month" : "10",
+        "birthday_day" : "10",
         "city" : "諏訪", 
         "area" : "上川"
     }

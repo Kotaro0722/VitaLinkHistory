@@ -77,13 +77,13 @@ const Page = ({ params }) => {
   const patientData = quesitionList.filter((datum) => datum.id == id)[0];
   console.log(patientData);
   return (
-    <Box sx={{ backgroundColor: "black", height: "100vh" }}>
+    <Box sx={{ backgroundColor: "#B1D0FF", height: "100vh" }}>
       <Typography
         sx={{
-          backgroundColor: "dimgray",
+          backgroundColor: "#1C8C42",
           color: "white",
           textAlign: "center",
-          fontSize: "30px",
+          fontSize: "60px",
           mb: "20px",
         }}
       >

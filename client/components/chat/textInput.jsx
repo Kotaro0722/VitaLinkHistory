@@ -6,6 +6,7 @@ const TextInput = ({ setMessage }) => {
 
   const handleSubmit = (message) => {
     setMessage(message);
+    textRef.current.value = "";
   };
 
   return (

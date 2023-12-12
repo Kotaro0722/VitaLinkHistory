@@ -1,11 +1,13 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chat from "@/components/chat/chat";
 import TextInput from "@/components/chat/textInput";
+import { useUpdateEffect } from "react-use";
 
 const Page = ({ params }) => {
+  const [message, setMessage] = useState("");
   const [quesitionList, setQuestionList] = useState([
     {
       id: "afgu3yarauh45",
@@ -50,7 +52,7 @@ const Page = ({ params }) => {
       isRead: false,
     },
   ]);
-  const chatHistory = [
+  const [chatHistory, setChatHistory] = useState([
     {
       isPatient: true,
       post_date: "2023/12/10-12:00",
@@ -72,10 +74,25 @@ const Page = ({ params }) => {
       post_date: "2023/12/10-12:00",
       content: "腰を痛めて歩けません",
     },
-  ];
-  const id = params.id;
-  const patientData = quesitionList.filter((datum) => datum.id == id)[0];
-  // console.log(patientData);
+  ]);
+  const patientData = quesitionList.filter((datum) => datum.id == params.id)[0];
+  const [user, setUser] = useState({
+    role: "doctor",
+    name: "kotaro",
+  });
+
+  useUpdateEffect(() => {
+    if (message) {
+      const newChat = {
+        isPatient: false,
+        post_date: "2023/12/10-12:00",
+        content: message,
+      };
+      setChatHistory([...chatHistory, newChat]);
+      console.log(newChat);
+    }
+  }, [message]);
+
   return (
     <Box sx={{ backgroundColor: "#B1D0FF", height: "100vh" }}>
       <Typography
@@ -92,7 +109,7 @@ const Page = ({ params }) => {
       {chatHistory.map((ch, index) => {
         return <Chat text={ch.content} isMine={ch.isPatient} key={index} />;
       })}
-      <TextInput />
+      <TextInput setMessage={setMessage} />
     </Box>
   );
 };

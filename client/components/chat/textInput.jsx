@@ -5,7 +5,7 @@ const TextInput = ({ setMessage }) => {
   const textRef = useRef(null);
 
   const handleSubmit = (message) => {
-    console.log(message);
+    setMessage(message);
   };
 
   return (

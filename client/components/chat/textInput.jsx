@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, ThemeProvider, createTheme } from "@mui/material";
 import { useRef } from "react";
 
 const TextInput = ({ setMessage }) => {
@@ -13,21 +13,34 @@ const TextInput = ({ setMessage }) => {
       <TextField
         id="outlined-basic"
         sx={{
-          // width: "100%",
           backgroundColor: "white",
           position: "fixed",
-          bottom: 0,
+          bottom: 20,
+          left: 270,
+          width: "calc(100% - 250px - 98px - 40px)",
+          borderRadius: "40px",
+          overflowWrap: "break-word",
+          lineHeight: "40px",
+          "& fieldset": { border: "none" },
         }}
         inputRef={textRef}
+        inputProps={{
+          style: { fontSize: "30px", lineHeight: "30px" },
+        }}
+        multiline
+        maxRows={5}
       />
       <Button
         sx={{
           position: "fixed",
-          bottom: 20,
-          right: 20,
+          bottom: 27,
+          right: 27,
           backgroundColor: "black",
           color: "white",
           fontSize: "20px",
+          ":hover": {
+            backgroundColor: "black",
+          },
         }}
         onClick={() => handleSubmit(textRef.current.value)}
       >

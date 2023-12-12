@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Chat from "@/components/chat/chat";
 import TextInput from "@/components/chat/textInput";
 import { useUpdateEffect } from "react-use";
@@ -76,10 +76,19 @@ const Page = ({ params }) => {
     },
   ]);
   const patientData = quesitionList.filter((datum) => datum.id == params.id)[0];
-  const [user, setUser] = useState({
-    role: "doctor",
-    name: "kotaro",
-  });
+  const scrollBottomRef = useRef(null);
+
+  const scrollToBottom = () => {
+    requestAnimationFrame(() => {
+      if (scrollBottomRef && scrollBottomRef.current) {
+        scrollBottomRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          // inline: "nearest",
+        });
+      }
+    });
+  };
 
   useUpdateEffect(() => {
     if (message) {
@@ -91,7 +100,14 @@ const Page = ({ params }) => {
       setChatHistory([...chatHistory, newChat]);
       console.log(newChat);
     }
+    scrollToBottom();
   }, [message]);
+
+  useLayoutEffect(() => {
+    if (scrollBottomRef && scrollBottomRef.current) {
+      scrollBottomRef.current.scrollIntoView();
+    }
+  }, []);
 
   return (
     <Box sx={{ backgroundColor: "#B1D0FF", height: "100vh" }}>
@@ -117,6 +133,7 @@ const Page = ({ params }) => {
         {chatHistory.map((ch, index) => {
           return <Chat text={ch.content} isMine={ch.isPatient} key={index} />;
         })}
+        <Box ref={scrollBottomRef} />
       </Box>
       <TextInput setMessage={setMessage} />
     </Box>

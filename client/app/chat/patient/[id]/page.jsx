@@ -106,9 +106,18 @@ const Page = ({ params }) => {
       >
         {patientData.name}さん
       </Typography>
-      {chatHistory.map((ch, index) => {
-        return <Chat text={ch.content} isMine={ch.isPatient} key={index} />;
-      })}
+      <Box
+        sx={{
+          height: "calc(100% - 110px - 90px)",
+          overflowY: "scroll",
+          msOverflowStyle: "none",
+          "::-webkit-scrollbar": { display: "none" },
+        }}
+      >
+        {chatHistory.map((ch, index) => {
+          return <Chat text={ch.content} isMine={ch.isPatient} key={index} />;
+        })}
+      </Box>
       <TextInput setMessage={setMessage} />
     </Box>
   );

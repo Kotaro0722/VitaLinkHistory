@@ -4,6 +4,11 @@ import { useRef } from "react";
 const TextInput = ({ setMessage }) => {
   const textRef = useRef(null);
 
+  const handleKeyDown = (event) => {
+    if (event.nativeEvent.isComposing || event.key !== "Enter") return;
+    handleSubmit(message);
+  };
+
   const handleSubmit = (message) => {
     setMessage(message);
     textRef.current.value = "";
@@ -30,6 +35,7 @@ const TextInput = ({ setMessage }) => {
         }}
         multiline
         maxRows={5}
+        onKeyDown={handleKeyDown()}
       />
       <Button
         sx={{

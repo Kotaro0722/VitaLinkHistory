@@ -116,7 +116,7 @@ const Page = ({ params }) => {
           backgroundColor: "#1C8C42",
           color: "white",
           textAlign: "center",
-          fontSize: "60px",
+          fontSize: "40px",
           mb: "20px",
         }}
       >

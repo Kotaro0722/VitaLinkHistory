@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Chat from "@/components/chat/chat";
 import TextInput from "@/components/chat/textInput";
 import { useUpdateEffect } from "react-use";

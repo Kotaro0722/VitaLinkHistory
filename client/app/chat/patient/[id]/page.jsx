@@ -2,8 +2,8 @@
 
 import { Box, Typography } from "@mui/material";
 import { useLayoutEffect, useRef, useState } from "react";
-import Chat from "@/components/chat/chat";
-import TextInput from "@/components/chat/textInput";
+import Chat from "@/components/chat/patient/chat";
+import TextInput from "@/components/chat/patient/textInput";
 import { useUpdateEffect } from "react-use";
 
 const Page = ({ params }) => {

@@ -64,6 +64,9 @@ export default function RootLayout({ children }) {
                   <Link href="/dashboard">
                     <Button variant="contained">アカウント情報</Button>
                   </Link>
+                  <Link href="/dashboard">
+                    <Button variant="contained">アカウント情報</Button>
+                  </Link>
                 </Box>
                 <Link href="/dashboard">
                   <Button variant="contained">Logout</Button>

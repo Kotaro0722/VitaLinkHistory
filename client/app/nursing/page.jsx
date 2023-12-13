@@ -50,7 +50,7 @@ export default function SignInSide() {
             // component="form"
             // noValidate
             onSubmit={handleSubmit}
-            sx={{ backgroundAttachment: "fixed" }}
+            sx={{}}
           >
             <Box
               sx={{
@@ -63,19 +63,27 @@ export default function SignInSide() {
                 backgroundColor: "blue",
                 backgroundPosition: "bottom",
                 backgroundSize: "250px",
-
                 color: "white",
                 textAlign: "center",
                 fontSize: "40px",
                 lineHeight: "20vh",
+                margin: "0 0 0 0",
+                position: "fixed",
               }}
             >
               介護サービス事業者
             </Box>
+          </Box>
+          <Box
+            // component="form"
+            // noValidate
+            onSubmit={handleSubmit}
+            sx={{ paddingTop: "20%" }}
+          >
             <Box
               sx={{
-                mt: 5,
-                mb: 7,
+                // mt: 5,
+                // mb: 7,
                 width: "80vw",
                 height: "30vh",
                 backgroundImage: "url()",
@@ -94,8 +102,8 @@ export default function SignInSide() {
             </Box>
             <Box
               sx={{
-                mt: 5,
-                mb: 7,
+                // mt: 5,
+                // mb: 7,
                 width: "80vw",
                 height: "30vh",
                 backgroundImage: "url()",
@@ -114,8 +122,8 @@ export default function SignInSide() {
             </Box>
             <Box
               sx={{
-                mt: 5,
-                mb: 7,
+                // mt: 5,
+                // mb: 7,
                 width: "80vw",
                 height: "30vh",
                 backgroundImage: "url()",
@@ -134,8 +142,8 @@ export default function SignInSide() {
             </Box>
             <Box
               sx={{
-                mt: 5,
-                mb: 7,
+                // mt: 5,
+                // mb: 7,
                 width: "80vw",
                 height: "30vh",
                 backgroundImage: "url()",

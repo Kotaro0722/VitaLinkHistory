@@ -1,14 +1,16 @@
 import { Box, Typography } from "@mui/material";
 
-const TransitionButton = ({ title, icon }) => {
+const TransitionButton = ({ title, icon, link, isQuestion }) => {
+  const unread = 10;
   return (
     <Box
       sx={{
         border: "3px solid black",
         borderRadius: "5px",
         width: "40%",
-        height: "100%",
         minWidth: "308px",
+        height: !icon ? "52px" : "auto",
+        cursor: "pointer",
       }}
     >
       <Typography

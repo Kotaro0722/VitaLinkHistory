@@ -2,9 +2,8 @@
 
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import TransitionButton from "@/components/home/transitionButton";
-import consultation from "@/public/img/consultation.png";
+import consultation from "@/public/img/consultation.svg";
 import dm from "@/public/img/dm.svg";
 
 const Page = () => {
@@ -13,7 +12,7 @@ const Page = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: "20px",
+        gap: "40px",
         p: "20px",
       }}
     >
@@ -22,7 +21,7 @@ const Page = () => {
           display: "flex",
           justifyContent: "center",
           gap: "20px",
-          height: "65%",
+          height: "70%",
         }}
       >
         <TransitionButton title={"患者の記録"} icon={consultation.src} />
@@ -34,9 +33,10 @@ const Page = () => {
           justifyContent: "center",
           gap: "20px",
           height: "65%",
+          height: "58px",
         }}
       >
-        <TransitionButton title={"患者からの質問"} />
+        <TransitionButton title={"患者からの質問"} isQuestion={true} />
         <TransitionButton title={"グループチャット"} />
       </Box>
     </Box>

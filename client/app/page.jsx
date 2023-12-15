@@ -32,8 +32,6 @@ const Page = () => {
           display: "flex",
           justifyContent: "center",
           gap: "20px",
-          height: "65%",
-          height: "58px",
         }}
       >
         <TransitionButton title={"患者からの質問"} isQuestion={true} />

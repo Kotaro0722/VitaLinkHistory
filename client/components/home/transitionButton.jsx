@@ -19,6 +19,7 @@ const TransitionButton = ({ title, icon, link, isQuestion }) => {
           color: "#1C8C42",
           fontSize: "38px",
           fontWeight: "600",
+          lineHeight: icon ? "100px" : "auto",
         }}
       >
         {title}

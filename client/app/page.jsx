@@ -12,8 +12,8 @@ const Page = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: "40px",
-        p: "20px",
+        justifyContent: "space-around",
+        height: "98vh",
       }}
     >
       <Box

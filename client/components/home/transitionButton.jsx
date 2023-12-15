@@ -1,6 +1,5 @@
-import { Box, Typography, Badge } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
-import { Scale } from "@mui/icons-material";
 
 const TransitionButton = ({ title, icon, link, isQuestion }) => {
   const buttonHight = "100px";

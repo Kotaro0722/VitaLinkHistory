@@ -18,11 +18,11 @@ const theme = createTheme({
   },
 });
 
-const Symptom = ({ title }) => {
+const Symptom = () => {
   return (
     <ThemeProvider theme={theme}>
       <Paper sx={{ px: "20px", height: "30%" }}>
-        <Typography sx={{ fontSize: "25px" }}>{title}</Typography>
+        <Typography sx={{ fontSize: "25px" }}>症状</Typography>
         <TextField
           sx={{
             width: "100%",

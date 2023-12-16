@@ -1,7 +1,15 @@
 "use client";
 
-import { Box, ThemeProvider, Typography, createTheme } from "@mui/material";
-import { useEffect } from "react";
+import TextForm from "@/components/record/input/symptom";
+import {
+  Box,
+  Grid,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from "@mui/material";
+import Symptom from "@/components/record/input/symptom";
+import Medicine from "@/components/record/input/medicine";
 
 const Page = ({ params }) => {
   const now = new Date();
@@ -194,6 +202,17 @@ const Page = ({ params }) => {
           </Box>
         </Box>
       </ThemeProvider>
+      <Grid container sx={{ mt: "20px", height: "calc(100% - 80px - 20px)" }}>
+        <Grid item xs={6}></Grid>
+        <Grid
+          item
+          xs={6}
+          sx={{ display: "flex", flexDirection: "column", gap: "20px" }}
+        >
+          <Symptom />
+          <Medicine />
+        </Grid>
+      </Grid>
     </Box>
   );
 };

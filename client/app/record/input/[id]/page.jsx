@@ -131,7 +131,6 @@ const Page = ({ params }) => {
   return (
     <Box
       sx={{
-        overflowY: "scroll",
         p: "20px",
         backgroundColor: "#9BC3FF",
         height: "100vh",

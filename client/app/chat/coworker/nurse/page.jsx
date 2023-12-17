@@ -32,7 +32,7 @@ const Page = () => {
         sx={{
           paddingTop: "20px",
           overflowY: "scroll",
-          maxHeight: "calc(100% - 64px - 60px)",
+          maxHeight: "calc(100% - 64px - 60px - 12px)",
           msOverflowStyle: "none",
           "::-webkit-scrollbar": { display: "none" },
           px: "40px",

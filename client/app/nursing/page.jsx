@@ -3,6 +3,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const defaultTheme = createTheme();
@@ -97,6 +98,19 @@ export default function SignInSide() {
             >
               大波暁斗（〇〇介護センター）
             </Box>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 2,
+                width: "100vw",
+                height: "10vh",
+                fontSize: "30px",
+              }}
+            >
+              チャット
+            </Button>
           </Box>
         </Box>
       </Grid>

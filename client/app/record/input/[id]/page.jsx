@@ -1,6 +1,5 @@
 "use client";
 
-import TextForm from "@/components/record/input/symptom";
 import {
   Box,
   Grid,
@@ -10,6 +9,7 @@ import {
 } from "@mui/material";
 import Symptom from "@/components/record/input/symptom";
 import Medicine from "@/components/record/input/medicine";
+import History from "@/components/record/output/history";
 
 const Page = ({ params }) => {
   const now = new Date();
@@ -128,6 +128,69 @@ const Page = ({ params }) => {
     },
   });
 
+  const history = [
+    {
+      date: {
+        year: "2023",
+        month: "12",
+        day: "17",
+      },
+      symptom: "喉が痛い 発熱",
+      medicine: [
+        { name: "ぺラックT錠", amount: 3, timing: "食後", note: "" },
+        { name: "トローチ", amount: 3, timing: "就寝前", note: "" },
+      ],
+    },
+    {
+      date: {
+        year: "2023",
+        month: "12",
+        day: "17",
+      },
+      symptom: "喉が痛い 発熱",
+      medicine: [
+        { name: "ぺラックT錠", amount: 3, timing: "食後", note: "" },
+        { name: "トローチ", amount: 3, timing: "就寝前", note: "" },
+      ],
+    },
+    {
+      date: {
+        year: "2023",
+        month: "12",
+        day: "17",
+      },
+      symptom: "喉が痛い 発熱",
+      medicine: [
+        { name: "ぺラックT錠", amount: 3, timing: "食後", note: "" },
+        { name: "トローチ", amount: 3, timing: "就寝前", note: "" },
+      ],
+    },
+    {
+      date: {
+        year: "2023",
+        month: "12",
+        day: "17",
+      },
+      symptom: "喉が痛い 発熱",
+      medicine: [
+        { name: "ぺラックT錠", amount: 3, timing: "食後", note: "" },
+        { name: "トローチ", amount: 3, timing: "就寝前", note: "" },
+      ],
+    },
+    {
+      date: {
+        year: "2023",
+        month: "12",
+        day: "17",
+      },
+      symptom: "喉が痛い 発熱",
+      medicine: [
+        { name: "ぺラックT錠", amount: 3, timing: "食後", note: "" },
+        { name: "トローチ", amount: 3, timing: "就寝前", note: "" },
+      ],
+    },
+  ];
+
   return (
     <Box
       sx={{
@@ -201,8 +264,14 @@ const Page = ({ params }) => {
           </Box>
         </Box>
       </ThemeProvider>
-      <Grid container sx={{ mt: "20px", height: "calc(100% - 80px - 20px)" }}>
-        <Grid item xs={6}></Grid>
+      <Grid
+        container
+        sx={{ mt: "20px", height: "calc(100% - 80px - 20px)" }}
+        spacing={2}
+      >
+        <Grid item xs={6}>
+          <History data={history} />
+        </Grid>
         <Grid
           item
           xs={6}

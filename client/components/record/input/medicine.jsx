@@ -15,6 +15,7 @@ import {
   FormControlLabel,
   Radio,
   Input,
+  Grid,
 } from "@mui/material";
 
 const MedicineInput = () => {
@@ -36,28 +37,51 @@ const MedicineInput = () => {
           },
         },
       },
+      MuiGrid: {
+        styleOverrides: {
+          root: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        },
+      },
     },
   });
   return (
-    <Box sx={{ border: "1px solid black", p: "10px", borderRadius: "20px" }}>
+    <Box
+      sx={{ border: "1px solid black", p: "10px 20px", borderRadius: "20px" }}
+    >
       <ThemeProvider theme={theme}>
-        <FormControl>
-          <InputLabel>処方薬名</InputLabel>
-          <Input />
-        </FormControl>
-        <FormControl>
-          <FormLabel sx={{ mr: "5px" }}>一日服用量</FormLabel>
-          <Select defaultValue={""}>
-            {medicineAmount.map((amount, index) => {
-              return (
-                <MenuItem value={amount} key={index}>
-                  {amount}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
-        <FormControl>
+        <Grid container>
+          <Grid item xs={6}>
+            <FormControl>
+              <InputLabel>処方薬名</InputLabel>
+              <Input />
+            </FormControl>
+          </Grid>
+          <Grid item xs={6}>
+            <FormControl>
+              <FormLabel sx={{ mr: "5px" }}>一日服用量</FormLabel>
+              <Select defaultValue={""}>
+                {medicineAmount.map((amount, index) => {
+                  return (
+                    <MenuItem value={amount} key={index}>
+                      {amount}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
+        <FormControl
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <FormLabel>服用のタイミング</FormLabel>
           <RadioGroup
             row
@@ -73,6 +97,10 @@ const MedicineInput = () => {
               label="就寝前"
             />
           </RadioGroup>
+        </FormControl>
+        <FormControl fullWidth>
+          <InputLabel>特記事項</InputLabel>
+          <Input fullWidth />
         </FormControl>
       </ThemeProvider>
     </Box>

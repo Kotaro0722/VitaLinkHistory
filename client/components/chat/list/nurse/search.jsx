@@ -31,18 +31,16 @@ const Search = ({ data, setData }) => {
   useEffect(() => {
     const newData = data.map((datum) => {
       return (!name || datum.name.includes(name)) &&
-        (!name || datum.belong.includes(belong))
+        (!belong || datum.belong.includes(belong))
         ? {
-            id: datum.id,
             name: datum.name,
             belong: datum.belong,
-            visible: true,
+            isVisible: true,
           }
         : {
-            id: datum.id,
             name: datum.name,
             belong: datum.belong,
-            visible: false,
+            isVisible: false,
           };
     });
     setData(newData);

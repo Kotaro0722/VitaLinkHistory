@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Grid, Button } from "@mui/material";
+import { Box, Grid, Button, Typography } from "@mui/material";
 import Search from "@/components/chat/list/nurse/search";
 
 const Page = () => {
@@ -11,6 +11,8 @@ const Page = () => {
     { name: "源次郎", belong: "諏訪東介護センター", isVisible: true },
     { name: "佐藤史郎", belong: "富士見南介護センター", isVisible: true },
   ]);
+
+  const listsLength = lists.filter((list) => list.isVisible).length;
   const height = "100px";
   return (
     <Box sx={{ height: "100vh", backgroundColor: "white" }}>
@@ -36,27 +38,37 @@ const Page = () => {
           px: "40px",
         }}
       >
-        {lists.map((list, index) => {
-          return (
-            <Box
-              sx={{
-                height: height,
-                backgroundColor: "white",
-                color: "green",
-                textAlign: "center",
-                fontSize: "35px",
-                border: "3px solid black",
-                my: "5px",
-                lineHeight: height,
-                cursor: "pointer",
-                borderRadius: "20px",
-              }}
-              key={index}
-            >
-              {list.name}({list.belong})
-            </Box>
-          );
-        })}
+        {listsLength ? (
+          lists.map((list, index) => {
+            return (
+              list.isVisible && (
+                <Box
+                  sx={{
+                    height: height,
+                    backgroundColor: "white",
+                    color: "green",
+                    textAlign: "center",
+                    fontSize: "35px",
+                    border: "3px solid black",
+                    my: "5px",
+                    lineHeight: height,
+                    cursor: "pointer",
+                    borderRadius: "20px",
+                  }}
+                  key={index}
+                >
+                  {list.name}({list.belong})
+                </Box>
+              )
+            );
+          })
+        ) : (
+          <Typography sx={{ textAlign: "center", fontSize: "35px" }}>
+            該当担当者・施設は存在しません。
+            <br />
+            正しく入力してください
+          </Typography>
+        )}
       </Box>
     </Box>
   );

@@ -17,7 +17,7 @@ import {
   Input,
   Grid,
 } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
 
 const MedicineInput = ({ data, setData }) => {
   const medicineAmount = [1, 2, 3, 4];
@@ -49,6 +49,7 @@ const MedicineInput = ({ data, setData }) => {
       },
     },
   });
+
   return (
     <Box
       sx={{ border: "1px solid black", p: "10px 20px", borderRadius: "20px" }}
@@ -110,6 +111,7 @@ const MedicineInput = ({ data, setData }) => {
 };
 
 const Medicine = () => {
+  const scrollBottomRef = useRef(null);
   const theme = createTheme({
     components: {
       MuiOutlinedInput: {
@@ -122,14 +124,7 @@ const Medicine = () => {
     },
   });
 
-  const [medicineData, setMedicineData] = useState([
-    {
-      name: "",
-      amount: 0,
-      timing: "",
-      note: "",
-    },
-  ]);
+  const [medicineData, setMedicineData] = useState([]);
 
   const handleAddClick = () => {
     setMedicineData([
@@ -141,17 +136,35 @@ const Medicine = () => {
         note: "",
       },
     ]);
+    scrollToBottom();
   };
-
   const handleRemoveClick = () => {
     setMedicineData(
       medicineData.filter((_, index) => index !== medicineData.length - 1)
     );
   };
 
+  useLayoutEffect(() => {
+    if (scrollBottomRef && scrollBottomRef.current) {
+      scrollBottomRef.current.scrollIntoView();
+    }
+  }, []);
+
+  const scrollToBottom = () => {
+    requestAnimationFrame(() => {
+      if (scrollBottomRef && scrollBottomRef.current) {
+        scrollBottomRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          // inline: "nearest",
+        });
+      }
+    });
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Paper sx={{ p: "20px", overflowY: "scroll" }}>
+      <Paper sx={{ p: "20px", overflowY: "scroll", maxHeight: "510px" }}>
         <Typography sx={{ fontSize: "25px" }}>処方薬</Typography>
         <Box sx={{ display: "flex", gap: "10px", flexDirection: "column" }}>
           {medicineData.map((datum, index) => {
@@ -165,6 +178,7 @@ const Medicine = () => {
               />
             );
           })}
+          <Box ref={scrollBottomRef}></Box>
         </Box>
         <Box
           sx={{ display: "flex", justifyContent: "space-around", mt: "20px" }}

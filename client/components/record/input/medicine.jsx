@@ -16,6 +16,7 @@ import {
   Radio,
   Input,
   Grid,
+  NativeSelect,
 } from "@mui/material";
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
 
@@ -65,7 +66,7 @@ const MedicineInput = ({ data, setData }) => {
           <Grid item xs={6}>
             <FormControl>
               <FormLabel sx={{ mr: "5px" }}>一日服用量</FormLabel>
-              <Select defaultValue={data.amount}>
+              {/* <Select defaultValue={data.amount}>
                 {medicineAmount.map((amount, index) => {
                   return (
                     <MenuItem value={amount} key={index}>
@@ -73,7 +74,16 @@ const MedicineInput = ({ data, setData }) => {
                     </MenuItem>
                   );
                 })}
-              </Select>
+              </Select> */}
+              <NativeSelect defaultValue={0}>
+                {medicineAmount.map((amount, index) => {
+                  return (
+                    <option value={amount} key={index}>
+                      {amount}
+                    </option>
+                  );
+                })}
+              </NativeSelect>
             </FormControl>
           </Grid>
         </Grid>
@@ -164,7 +174,15 @@ const Medicine = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper sx={{ p: "20px", overflowY: "scroll", maxHeight: "510px" }}>
+      <Paper
+        sx={{
+          p: "20px",
+          overflowY: "scroll",
+          maxHeight: "510px",
+          msOverflowStyle: "none",
+          "::-webkit-scrollbar": { display: "none" },
+        }}
+      >
         <Typography sx={{ fontSize: "25px" }}>処方薬</Typography>
         <Box sx={{ display: "flex", gap: "10px", flexDirection: "column" }}>
           {medicineData.map((datum, index) => {

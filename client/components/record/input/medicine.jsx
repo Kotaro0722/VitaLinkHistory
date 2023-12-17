@@ -17,8 +17,9 @@ import {
   Input,
   Grid,
 } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 
-const MedicineInput = () => {
+const MedicineInput = ({ data, setData }) => {
   const medicineAmount = [1, 2, 3, 4];
 
   const theme = createTheme({
@@ -57,13 +58,13 @@ const MedicineInput = () => {
           <Grid item xs={6}>
             <FormControl>
               <InputLabel>処方薬名</InputLabel>
-              <Input />
+              <Input defaultValue={data.name} />
             </FormControl>
           </Grid>
           <Grid item xs={6}>
             <FormControl>
               <FormLabel sx={{ mr: "5px" }}>一日服用量</FormLabel>
-              <Select defaultValue={""}>
+              <Select defaultValue={data.amount}>
                 {medicineAmount.map((amount, index) => {
                   return (
                     <MenuItem value={amount} key={index}>
@@ -87,6 +88,7 @@ const MedicineInput = () => {
             row
             aria-labelledby="demo-radio-buttons-group-label"
             name="radio-buttons-group"
+            defaultValue={""}
           >
             <FormControlLabel value="食前" control={<Radio />} label="食前" />
             <FormControlLabel value="食間" control={<Radio />} label="食間" />
@@ -120,12 +122,60 @@ const Medicine = () => {
     },
   });
 
+  const [medicineData, setMedicineData] = useState([
+    {
+      name: "",
+      amount: 0,
+      timing: "",
+      note: "",
+    },
+  ]);
+
+  const handleAddClick = () => {
+    setMedicineData([
+      ...medicineData,
+      {
+        name: "",
+        amount: 0,
+        timing: "",
+        note: "",
+      },
+    ]);
+  };
+
+  const handleRemoveClick = () => {
+    setMedicineData(
+      medicineData.filter((_, index) => index !== medicineData.length - 1)
+    );
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Paper sx={{ px: "20px", height: "30%" }}>
+      <Paper sx={{ p: "20px", overflowY: "scroll" }}>
         <Typography sx={{ fontSize: "25px" }}>処方薬</Typography>
-        <MedicineInput />
-        {/* <Button /> */}
+        <Box sx={{ display: "flex", gap: "10px", flexDirection: "column" }}>
+          {medicineData.map((datum, index) => {
+            return (
+              <MedicineInput
+                data={datum}
+                setData={setMedicineData}
+                index={index}
+                isSave={true}
+                key={index}
+              />
+            );
+          })}
+        </Box>
+        <Box
+          sx={{ display: "flex", justifyContent: "space-around", mt: "20px" }}
+        >
+          <Button onClick={handleAddClick} variant="contained">
+            追加
+          </Button>
+          <Button onClick={handleRemoveClick} variant="contained">
+            削除
+          </Button>
+        </Box>
       </Paper>
     </ThemeProvider>
   );

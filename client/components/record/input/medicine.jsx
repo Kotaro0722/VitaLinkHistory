@@ -178,7 +178,7 @@ const Medicine = () => {
         sx={{
           p: "20px",
           overflowY: "scroll",
-          maxHeight: "510px",
+          maxHeight: "473px",
           msOverflowStyle: "none",
           "::-webkit-scrollbar": { display: "none" },
         }}

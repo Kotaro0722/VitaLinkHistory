@@ -2,6 +2,7 @@
 
 import {
   Box,
+  Button,
   Grid,
   ThemeProvider,
   Typography,
@@ -266,7 +267,7 @@ const Page = ({ params }) => {
       </ThemeProvider>
       <Grid
         container
-        sx={{ mt: "20px", height: "calc(100% - 80px - 20px)" }}
+        sx={{ mt: "20px", height: "calc(100% - 80px - 20px - 36px)" }}
         spacing={2}
       >
         <Grid item xs={6}>
@@ -281,6 +282,11 @@ const Page = ({ params }) => {
           <Medicine />
         </Grid>
       </Grid>
+      <Box
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        <Button variant="contained">保存</Button>
+      </Box>
     </Box>
   );
 };

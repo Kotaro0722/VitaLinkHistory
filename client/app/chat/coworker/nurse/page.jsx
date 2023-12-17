@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Grid, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Search from "@/components/chat/list/nurse/search";
 
 const Page = () => {

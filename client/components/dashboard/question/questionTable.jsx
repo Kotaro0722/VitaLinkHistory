@@ -22,6 +22,7 @@ import clock from "@/public/img/clock.svg";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useRouter } from "next/navigation";
+import { paths } from "@/paths";
 
 const PageManager = ({ page, setPage, maxPage }) => {
   const handleChangePage = (newPage) => {
@@ -93,6 +94,7 @@ const QuestionTable = ({ data, setData }) => {
               newData[index].isRead = true;
               setData(newData);
               setShowPerson(index);
+              router.push(paths.chat.patient(datum.id));
             };
             console.log(rowsPerPage * (page + 1) > index);
             return (

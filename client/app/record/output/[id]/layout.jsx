@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>カルテ</title>
       </head>
-      <body>
+      <body style={{ margin: "0px" }}>
         <Grid container>
           <Grid item minWidth={sidebarWidth}>
             <Paper

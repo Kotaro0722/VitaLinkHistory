@@ -11,6 +11,7 @@ import {
   Typography,
   Button,
   createTheme,
+  TextField,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -476,6 +477,34 @@ const Page = ({ params }) => {
                 })}
               </RadioGroup>
             </FormControl>
+          </>
+        )}
+        {page == 2 && (
+          <>
+            <Box sx={{ width: "100%", mb: "20px" }}>
+              <Typography>照会・相談内容</Typography>
+              <TextField
+                multiline
+                rows={10}
+                sx={{ backgroundColor: "#D9D9D9", width: "100%" }}
+              />
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "right",
+                alignItems: "center",
+                mb: "20px",
+              }}
+            >
+              <Typography>担当者 職氏名</Typography>
+              <TextField sx={{ backgroundColor: "#D9D9D9" }} />
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Button variant="contained" sx={{ width: "150px" }}>
+                完了
+              </Button>
+            </Box>
           </>
         )}
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>

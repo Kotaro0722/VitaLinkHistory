@@ -10,6 +10,7 @@ import {
   RadioGroup,
   Typography,
   Button,
+  createTheme,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -32,6 +33,8 @@ const Page = ({ params }) => {
         month: "4",
         day: "6",
       },
+      tel: "09045376549",
+      sex: "女",
     },
     {
       id: "asafauehfa5",
@@ -46,6 +49,8 @@ const Page = ({ params }) => {
         month: "7",
         day: "30",
       },
+      tel: "09045376549",
+      sex: "男",
     },
     {
       id: "gaseritaser",
@@ -60,6 +65,8 @@ const Page = ({ params }) => {
         month: "10",
         day: "11",
       },
+      tel: "09045376549",
+      sex: "男",
     },
     {
       id: "gajoeirt",
@@ -74,6 +81,8 @@ const Page = ({ params }) => {
         month: "11",
         day: "5",
       },
+      tel: "09045376549",
+      sex: "男",
     },
     {
       id: "saleirlueer",
@@ -88,6 +97,8 @@ const Page = ({ params }) => {
         month: "8",
         day: "3",
       },
+      tel: "09045376549",
+      sex: "女",
     },
     {
       id: "sakehrerr",
@@ -102,10 +113,12 @@ const Page = ({ params }) => {
         month: "6",
         day: "25",
       },
+      tel: "09045376549",
+      sex: "男",
     },
   ]);
-  const patientData = data.filter((datum) => datum.id == params.id);
-  const [page, setPage] = useState(0);
+  const patientData = data.filter((datum) => datum.id == params.id)[0];
+  const [page, setPage] = useState(1);
   const user = {
     belong: "茅野中央介護センター",
     name: "田中光太郎",
@@ -119,6 +132,37 @@ const Page = ({ params }) => {
     { belong: "富士見南クリニック", name: "杉田雄一郎" },
   ];
   const [selectBelong, setSelectBelong] = useState("");
+
+  const purpose = [
+    {
+      label: "新規・更新・区分変更後のケアプラン作成時の意見について",
+      value: "ideaPlan",
+    },
+    {
+      label: "利用者の医療・介護・症状の医学的意見・指示について",
+      value: "instruct",
+    },
+    {
+      label: "サービス担当者会議における意見について",
+      value: "ideaService",
+    },
+    {
+      label: "医療系サービスを導入するにあたり、主治医の意見・相談など",
+      value: "consultService",
+    },
+    {
+      label: "利用者の下記条件についての相談",
+      value: "consultCondition",
+    },
+    {
+      label: "担当ケアマネージャーになった挨拶",
+      value: "greet",
+    },
+    {
+      label: "その他",
+      value: "other",
+    },
+  ];
 
   const handleSelectBelong = (e) => {
     setSelectBelong(e.target.value);
@@ -138,12 +182,11 @@ const Page = ({ params }) => {
           flexDirection: "column",
         }}
       >
+        <Typography sx={{ textAlign: "right" }}>
+          {today.getFullYear()}年{today.getMonth() + 1}月{today.getDate()}日
+        </Typography>
         {page == 0 && (
           <>
-            <Typography sx={{ textAlign: "right" }}>
-              令和{today.getFullYear()}年{today.getMonth() + 1}月
-              {today.getDate()}日
-            </Typography>
             <Grid container>
               <Grid
                 item
@@ -289,6 +332,150 @@ const Page = ({ params }) => {
                 </RadioGroup>
               </FormControl>
             </Box>
+          </>
+        )}
+        {page == 1 && (
+          <>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography sx={{ writingMode: "vertical-rl", mr: "30px" }}>
+                利用者
+              </Typography>
+              <Grid container sx={{ width: "fit-content" }} spacing={4}>
+                <Grid item>
+                  <Box sx={{ display: "flex" }}>
+                    <Typography
+                      sx={{
+                        width: "70px",
+                      }}
+                    >
+                      氏名
+                    </Typography>
+                    <Typography
+                      sx={{
+                        backgroundColor: "#D9D9D9",
+                        width: "110px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {patientData.name}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: "flex" }}>
+                    <Typography
+                      sx={{
+                        width: "70px",
+                      }}
+                    >
+                      住所
+                    </Typography>
+                    <Typography
+                      sx={{
+                        backgroundColor: "#D9D9D9",
+                        width: "110px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {patientData.address.city} {patientData.address.town}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: "flex" }}>
+                    <Typography
+                      sx={{
+                        width: "70px",
+                      }}
+                    >
+                      介護度
+                    </Typography>
+                    <Typography
+                      sx={{
+                        backgroundColor: "#D9D9D9",
+                        width: "110px",
+                        textAlign: "center",
+                      }}
+                    >
+                      要介護
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item>
+                  <Box sx={{ display: "flex" }}>
+                    <Typography
+                      sx={{
+                        width: "70px",
+                      }}
+                    >
+                      電話番号
+                    </Typography>
+                    <Typography
+                      sx={{
+                        backgroundColor: "#D9D9D9",
+                        width: "110px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {patientData.tel}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: "flex" }}>
+                    <Typography
+                      sx={{
+                        width: "70px",
+                      }}
+                    >
+                      生年月日
+                    </Typography>
+                    <Typography
+                      sx={{
+                        backgroundColor: "#D9D9D9",
+                        width: "110px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {patientData.birth.year}年{patientData.birth.month}月
+                      {patientData.birth.day}日
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: "flex" }}>
+                    <Typography
+                      sx={{
+                        width: "70px",
+                      }}
+                    >
+                      性別
+                    </Typography>
+                    <Typography
+                      sx={{
+                        backgroundColor: "#D9D9D9",
+                        width: "110px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {patientData.sex}
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Box>
+            <FormControl>
+              <RadioGroup>
+                {purpose.map((list, index) => {
+                  return (
+                    <FormControlLabel
+                      label={list.label}
+                      control={<Radio />}
+                      value={list.value}
+                      key={index}
+                    />
+                  );
+                })}
+              </RadioGroup>
+            </FormControl>
           </>
         )}
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>

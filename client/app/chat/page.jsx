@@ -5,10 +5,13 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import ChatButton from "@/components/chat/chatButton";
 import doctor from "@/public/img/doctor.svg";
 import nurse from "@/public/img/nurse.svg";
+import { paths } from "@/paths";
+import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
+  const router = useRouter();
   const handleGroupClick = () => {
-    console.log("click");
+    router.push(paths.chat.group);
   };
   return (
     <Box
@@ -34,10 +37,18 @@ const Dashboard = () => {
       </Typography>
       <Grid container sx={{ mt: "15px" }}>
         <Grid item xs={6}>
-          <ChatButton title={"医師・薬剤師"} img={doctor.src} />
+          <ChatButton
+            title={"医師・薬剤師"}
+            img={doctor.src}
+            link={paths.chat.doctor}
+          />
         </Grid>
         <Grid item xs={6}>
-          <ChatButton title={"介護サービス事業者"} img={nurse.src} />
+          <ChatButton
+            title={"介護サービス事業者"}
+            img={nurse.src}
+            link={paths.chat.nurse}
+          />
         </Grid>
       </Grid>
       <Button

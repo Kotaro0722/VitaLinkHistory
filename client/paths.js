@@ -8,7 +8,7 @@ export const paths = {
     index: "/chat",
     doctor: "/chat/coworker/doctor",
     group: "/chat/coworker/group",
-    nurse: "/chat/cworker/nurse",
+    nurse: "/chat/coworker/nurse",
     patient: (id) => `/chat/patient/${id}`,
   },
   login: "/login",

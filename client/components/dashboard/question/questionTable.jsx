@@ -21,6 +21,7 @@ import exclamation from "@/public/img/exclamation.svg";
 import clock from "@/public/img/clock.svg";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useRouter } from "next/navigation";
 
 const PageManager = ({ page, setPage, maxPage }) => {
   const handleChangePage = (newPage) => {
@@ -50,6 +51,7 @@ const QuestionTable = ({ data, setData }) => {
   const [showPerson, setShowPerson] = useState(0);
   const rowsPerPage = 5;
   console.log(data.length / rowsPerPage);
+  const router = useRouter();
 
   const theme = createTheme({
     components: {

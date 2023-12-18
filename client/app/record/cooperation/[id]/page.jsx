@@ -119,7 +119,7 @@ const Page = ({ params }) => {
     },
   ]);
   const patientData = data.filter((datum) => datum.id == params.id)[0];
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const user = {
     belong: "茅野中央介護センター",
     name: "田中光太郎",
@@ -176,7 +176,7 @@ const Page = ({ params }) => {
   };
 
   return (
-    <Box sx={{ height: "100%" }}>
+    <Box sx={{ height: "calc(100% - 20px)", m: "10px" }}>
       <Box
         sx={{
           display: "flex",
@@ -218,7 +218,12 @@ const Page = ({ params }) => {
                           <Typography>医療機関名</Typography>
                         </td>
                         <td>
-                          <NativeSelect onChange={handleSelectBelong}>
+                          <NativeSelect
+                            onChange={handleSelectBelong}
+                            sx={{
+                              backgroundColor: "#D9D9D9",
+                            }}
+                          >
                             {doctorLists.map((list, index) => {
                               return (
                                 <option value={list.belong} key={index}>
@@ -234,7 +239,11 @@ const Page = ({ params }) => {
                           <Typography>氏名</Typography>
                         </td>
                         <td>
-                          <NativeSelect>
+                          <NativeSelect
+                            sx={{
+                              backgroundColor: "#D9D9D9",
+                            }}
+                          >
                             {doctorLists
                               .filter((list) => list.belong == selectBelong)
                               .map((list, index) => {
@@ -280,7 +289,9 @@ const Page = ({ params }) => {
                           <Typography>事業所名</Typography>
                         </td>
                         <td>
-                          <Typography>{user.belong}</Typography>
+                          <Typography sx={{ backgroundColor: "#D9D9D9" }}>
+                            {user.belong}
+                          </Typography>
                         </td>
                       </tr>
                       <tr>
@@ -288,7 +299,9 @@ const Page = ({ params }) => {
                           <Typography>氏名</Typography>
                         </td>
                         <td>
-                          <Typography>{user.name}</Typography>
+                          <Typography sx={{ backgroundColor: "#D9D9D9" }}>
+                            {user.name}
+                          </Typography>
                         </td>
                       </tr>
                       <tr>
@@ -296,7 +309,9 @@ const Page = ({ params }) => {
                           <Typography>電話番号</Typography>
                         </td>
                         <td>
-                          <Typography>{user.tel}</Typography>
+                          <Typography sx={{ backgroundColor: "#D9D9D9" }}>
+                            {user.tel}
+                          </Typography>
                         </td>
                       </tr>
                       <tr>
@@ -304,7 +319,9 @@ const Page = ({ params }) => {
                           <Typography>E-mail</Typography>
                         </td>
                         <td>
-                          <Typography>{user.email}</Typography>
+                          <Typography sx={{ backgroundColor: "#D9D9D9" }}>
+                            {user.email}
+                          </Typography>
                         </td>
                       </tr>
                     </tbody>
@@ -328,7 +345,6 @@ const Page = ({ params }) => {
                     label="ご本人・ご家族の同意は得られておりませんが、ご本人のために必要がありますのでご連絡したします。"
                     control={<Radio />}
                     value="no"
-                    sx={{ mb: "30px" }}
                   />
                 </RadioGroup>
               </FormControl>
@@ -507,7 +523,9 @@ const Page = ({ params }) => {
             </Box>
           </>
         )}
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box
+          sx={{ display: "flex", justifyContent: "space-between", mt: "30px" }}
+        >
           {page != 0 ? (
             <Button sx={{ color: "black" }} onClick={handlePrevClick}>
               <ArrowBackIosNewIcon />

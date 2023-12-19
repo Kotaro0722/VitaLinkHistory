@@ -66,13 +66,7 @@ const Page = ({ params }) => {
     {
       isPatient: true,
       post_date: "2023/12/10-12:00",
-      content:
-        "明日行きます。明日行きます。明日行きます。明日行きます。明日行きます。明日行きます。明日行きます。",
-    },
-    {
-      isPatient: true,
-      post_date: "2023/12/10-12:00",
-      content: "腰を痛めて歩けません",
+      content: "明日行きます。",
     },
   ]);
   const patientData = quesitionList.filter((datum) => datum.id == params.id)[0];

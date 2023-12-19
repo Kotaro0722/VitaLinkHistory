@@ -108,6 +108,8 @@ const Page = () => {
     );
   };
   const handleButtonClick = () => {
+    const selectMember = lists.filter((list) => list.isSelected == true);
+    console.log(selectMember);
     const chatID = "ahgiaega";
     router.push(paths.chat.medical(chatID));
   };

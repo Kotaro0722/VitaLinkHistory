@@ -9,12 +9,16 @@ import {
   TablePagination,
   TableRow,
   Paper,
+  Box,
+  Typography,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
+import { paths } from "@/paths";
 
 const Page = () => {
+  const router = useRouter();
   const [page, setPage] = useState(0);
   const [showPerson, setShowPerson] = useState(0);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const rowsPerPage = 10;
   const data = [
     {
@@ -102,15 +106,22 @@ const Page = () => {
     setPage(newPage);
   };
 
-  const handleRowClick = (index) => {
-    setShowPerson(index);
-    setModalIsOpen(true);
+  const handleRowClick = (link) => {
+    router.push(paths.chat.medical(link));
   };
 
-  const visibleLength = data.filter((datum) => datum.visible).length;
+  const visibleLength = data.filter((datum) => datum.isVisible).length;
 
   return (
-    <>
+    <Box sx={{ backgroundColor: "#9BC3FF", height: "99vh" }}>
+      <Typography
+        sx={{
+          fontSize: "45px",
+          textAlign: "center",
+        }}
+      >
+        作成済みグループ一覧
+      </Typography>
       <Paper sx={{ width: "600px", mx: "auto", mt: "30px" }}>
         <Table aria-labelledby="tableTitle">
           <TableHead
@@ -124,12 +135,8 @@ const Page = () => {
               }}
             >
               <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
-              <TableCell sx={{ p: "8px" }}>患者名</TableCell>
-              <TableCell sx={{ p: "8px" }} align="center">
-                市町村
-              </TableCell>
-              <TableCell sx={{ p: "8px" }} align="center">
-                地域
+              <TableCell sx={{ p: "8px", textAlign: "center" }}>
+                参加者名
               </TableCell>
               <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
             </TableRow>
@@ -138,10 +145,10 @@ const Page = () => {
             {visibleLength ? (
               data.map((datum, index) => {
                 return (
-                  datum.visible && (
+                  datum.isVisible && (
                     <TableRow
                       hover
-                      onClick={() => handleRowClick(index)}
+                      onClick={() => handleRowClick(datum.id)}
                       key={datum.id}
                       sx={{ cursor: "pointer" }}
                     >
@@ -152,11 +159,16 @@ const Page = () => {
                           border: "0px",
                         }}
                       ></TableCell>
-                      <TableCell component="td" scope="datum" padding="none">
-                        {datum.name}
+                      <TableCell
+                        component="td"
+                        scope="datum"
+                        padding="16px"
+                        sx={{ textAlign: "center", fontSize: "20px" }}
+                      >
+                        {datum.name.map((namae) => {
+                          return `${namae.name}(${namae.belong})\t`;
+                        })}
                       </TableCell>
-                      <TableCell align="center">{datum.address.city}</TableCell>
-                      <TableCell align="center">{datum.address.town}</TableCell>
                       <TableCell
                         sx={{
                           width: "10px",
@@ -171,9 +183,7 @@ const Page = () => {
             ) : (
               <TableRow>
                 <TableCell></TableCell>
-                <TableCell></TableCell>
                 <TableCell align="center">該当する患者はいません</TableCell>
-                <TableCell></TableCell>
                 <TableCell></TableCell>
               </TableRow>
             )}
@@ -188,7 +198,7 @@ const Page = () => {
           onPageChange={handleChangePage}
         />
       </Paper>
-    </>
+    </Box>
   );
 };
 

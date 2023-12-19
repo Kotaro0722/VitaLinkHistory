@@ -103,8 +103,7 @@ const Dashboard = () => {
       <Typography
         sx={{
           fontSize: "45px",
-          pt: "20px",
-          pl: "20px",
+          textAlign: "center",
         }}
       >
         患者情報一覧

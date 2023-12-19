@@ -1,10 +1,13 @@
 "use client";
 
 import CheckList from "@/components/record/interview/checklist";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { useState } from "react";
+import { paths } from "@/paths";
+import { useRouter } from "next/navigation";
 
 const Page = ({ params }) => {
+  const router = useRouter();
   const [symptoms, setSymptom] = useState([
     { name: "fever", check: false, label: "発熱" },
     { name: "headache", check: false, label: "頭痛" },
@@ -58,24 +61,35 @@ const Page = ({ params }) => {
     { name: "feed", check: false, label: "授乳中" },
   ]);
 
+  const handleClick = () => {
+    router.push(paths.record.history(params.id));
+  };
+
   return (
     <Box
       sx={{
         height: "97vh",
-        display: "flex",
-        flexDirection: "column",
-        gap: "5px",
-        mt: "-20px",
-        transform: "scale(0.9)",
+        p: "10px",
       }}
     >
-      <CheckList title="症状" data={symptoms} setData={setSymptom} />
-      <CheckList title="罹患した病気" data={sicks} setData={setSick} />
-      <CheckList title="服用中の薬剤" data={medicines} setData={setMedicine} />
-      <CheckList title="アレルギー" data={allergy} setData={setAllergy} />
-      <CheckList title="お酒" data={alcohol} setData={setAlcohol} />
-      <CheckList title="たばこ" data={tabacco} setData={setTabacco} />
-      <CheckList title="女性のみ" data={female} setData={setFemale} />
+      <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+        <CheckList title="症状" data={symptoms} setData={setSymptom} />
+        <CheckList title="罹患した病気" data={sicks} setData={setSick} />
+        <CheckList
+          title="服用中の薬剤"
+          data={medicines}
+          setData={setMedicine}
+        />
+        <CheckList title="アレルギー" data={allergy} setData={setAllergy} />
+        <CheckList title="お酒" data={alcohol} setData={setAlcohol} />
+        <CheckList title="たばこ" data={tabacco} setData={setTabacco} />
+        <CheckList title="女性のみ" data={female} setData={setFemale} />
+      </Box>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Button onClick={handleClick} variant="contained" sx={{ mt: "20px" }}>
+          保存
+        </Button>
+      </Box>
     </Box>
   );
 };

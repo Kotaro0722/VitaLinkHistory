@@ -63,7 +63,6 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
   };
   const handleLinkClick = (link) => {
     router.push(link);
-    console.log(data);
   };
   return (
     <Modal open={IsActive}>

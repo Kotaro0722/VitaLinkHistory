@@ -95,12 +95,12 @@ const Page = ({ params }) => {
     {
       isMine: false,
       post_date: "2023/12/10-12:00",
-      content: "血圧が高いので再検査お願いします。",
+      content: "食欲がないとおっしゃられていたので、注意をお願いします。",
     },
     {
       isMine: true,
       post_date: "2023/12/10-12:10",
-      content: "承知しました。",
+      content: "承知しました。ほかに変わった点などはありましたか？",
     },
   ]);
   const scrollBottomRef = useRef(null);

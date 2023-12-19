@@ -8,30 +8,89 @@ import { useUpdateEffect } from "react-use";
 
 const Page = ({ params }) => {
   const [message, setMessage] = useState("");
-  const lists = {
-    id: "grgniae",
-    member: [
-      {
-        name: "鈴木太郎",
-        belong: "茅野中央病院",
-        isVisible: true,
-        id: "awhiagaargb",
-      },
-      {
-        name: "田中花子",
-        belong: "岡谷西医院",
-        isVisible: true,
-        id: "ksbgaewejhb",
-      },
-      {
-        name: "永井敬",
-        belong: "諏訪東介護センター",
-        isVisible: true,
-        isSelected: false,
-        id: "uaiwegbae",
-      },
-    ],
-  };
+  const chatLists = [
+    {
+      id: "grgniae",
+      name: [
+        {
+          name: "鈴木太郎",
+          belong: "茅野中央病院",
+          isVisible: true,
+          id: "awhiagaargb",
+        },
+        {
+          name: "田中花子",
+          belong: "岡谷西医院",
+          isVisible: true,
+          id: "ksbgaewejhb",
+        },
+        {
+          name: "永井敬",
+          belong: "諏訪東介護センター",
+          isVisible: true,
+          isSelected: false,
+          id: "uaiwegbae",
+        },
+      ],
+    },
+    {
+      name: "鈴木太郎",
+      belong: "茅野中央病院",
+      isVisible: true,
+      isSelected: false,
+      id: "awhiagaargb",
+    },
+    {
+      name: "田中花子",
+      belong: "岡谷西医院",
+      isVisible: true,
+      isSelected: false,
+      id: "ksbgaewejhb",
+    },
+    {
+      name: "源次郎",
+      belong: "諏訪東診療所",
+      isVisible: true,
+      isSelected: false,
+      id: "nvbragabjg",
+    },
+    {
+      name: "佐藤史郎",
+      belong: "富士見南総合病院",
+      isVisible: true,
+      isSelected: false,
+      id: "rtaabjhrbaj",
+    },
+    {
+      name: "伊藤佳代子",
+      belong: "茅野中央介護センター",
+      isVisible: true,
+      isSelected: false,
+      id: "chbfawebtaw",
+    },
+    {
+      name: "東南",
+      belong: "岡谷西介護センター",
+      isVisible: true,
+      isSelected: false,
+      id: "jgsegaiebga",
+    },
+    {
+      name: "永井敬",
+      belong: "諏訪東介護センター",
+      isVisible: true,
+      isSelected: false,
+      id: "uaiwegbae",
+    },
+    {
+      name: "本田翼",
+      belong: "富士見南介護センター",
+      isVisible: true,
+      isSelected: false,
+      id: "pwpewgabwa",
+    },
+  ];
+  const lists = chatLists.filter((chatList) => chatList.id == params.id);
   const [chatHistory, setChatHistory] = useState([
     {
       isMine: false,
@@ -88,7 +147,7 @@ const Page = ({ params }) => {
           mb: "20px",
         }}
       >
-        {lists.member.map((m, index) => {
+        {lists.map((m) => {
           return m.name + "さん ";
         })}
       </Typography>

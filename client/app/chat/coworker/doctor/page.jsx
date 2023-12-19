@@ -83,7 +83,7 @@ const Page = () => {
                     borderRadius: "20px",
                   }}
                   key={index}
-                  onClick={() => handleClick(list.belong)}
+                  onClick={() => handleClick(list.id)}
                 >
                   {list.name}({list.belong})
                 </Box>

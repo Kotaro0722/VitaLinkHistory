@@ -11,6 +11,8 @@ import {
   ThemeProvider,
 } from "@mui/material";
 import Link from "next/link";
+import { paths } from "@/paths";
+import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +32,10 @@ const theme = createTheme({
 
 export default function RootLayout({ children }) {
   const sidebarWidth = "250px";
+  const router = useRouter();
+  const handleButtonClick = (link) => {
+    router.push(link);
+  };
   return (
     <html lang="en">
       <head>
@@ -59,19 +65,37 @@ export default function RootLayout({ children }) {
                     gap: "20px",
                   }}
                 >
-                  <Link href="/dashboard">
-                    <Button variant="contained">患者情報一覧</Button>
-                  </Link>
-                  <Link href="/dashboard">
-                    <Button variant="contained">アカウント情報</Button>
-                  </Link>
-                  <Link href="/dashboard/questionTable">
-                    <Button variant="contained">患者からの質問</Button>
-                  </Link>
+                  <Button
+                    variant="contained"
+                    onClick={() => handleButtonClick(paths.dashboard.index)}
+                  >
+                    患者情報一覧
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => handleButtonClick(paths.dashboard.question)}
+                  >
+                    患者からの質問
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => handleButtonClick(paths.chat.index)}
+                  >
+                    チャット
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => handleButtonClick(paths.home)}
+                  >
+                    ホーム画面
+                  </Button>
                 </Box>
-                <Link href="/dashboard">
-                  <Button variant="contained">Logout</Button>
-                </Link>
+                <Button
+                  variant="contained"
+                  onClick={() => handleButtonClick(paths.login)}
+                >
+                  Logout
+                </Button>
               </ThemeProvider>
             </Paper>
           </Grid>

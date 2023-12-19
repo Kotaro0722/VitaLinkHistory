@@ -12,6 +12,8 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { paths } from "@/paths";
+import { useRouter } from "next/navigation";
 
 const Copyright = (props) => {
   return (
@@ -36,6 +38,7 @@ const Copyright = (props) => {
 const defaultTheme = createTheme();
 
 const SignInSide = () => {
+  const router = useRouter();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -43,6 +46,9 @@ const SignInSide = () => {
       email: data.get("email"),
       password: data.get("password"),
     });
+  };
+  const handleButton = () => {
+    router.push(paths.home);
   };
 
   return (
@@ -132,6 +138,7 @@ const SignInSide = () => {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={handleButton}
               >
                 ログイン
               </Button>

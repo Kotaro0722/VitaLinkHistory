@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
 
-const ChatButton = ({ img, title }) => {
+const ChatButton = ({ img, title, link }) => {
+  const router = useRouter();
   const handleIconClick = () => {
-    console.log("click");
+    router.push(link);
   };
   return (
     <Box

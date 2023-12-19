@@ -1,9 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
+import { useRouter } from "next/navigation";
 
 const TransitionButton = ({ title, icon, link, isQuestion }) => {
   const buttonHight = "100px";
   const unread = 10;
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(link);
+  };
+
   return (
     <>
       <Box
@@ -19,6 +26,7 @@ const TransitionButton = ({ title, icon, link, isQuestion }) => {
           height: !icon ? buttonHight : "auto",
           cursor: "pointer",
         }}
+        onClick={handleClick}
       >
         <Box
           sx={{

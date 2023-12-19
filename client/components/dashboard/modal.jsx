@@ -7,6 +7,7 @@ import {
   createTheme,
   ThemeProvider,
   Button,
+  Box,
 } from "@mui/material";
 import Link from "next/link";
 import photo from "@/public/img/personImg.svg";
@@ -16,6 +17,8 @@ import medicalRecord1 from "@/public/img/medicalRecord1.svg";
 import medicalRecord2 from "@/public/img/medicalRecord2.svg";
 import { Zen_Maru_Gothic } from "next/font/google";
 import peke from "@/public/img/peke.svg";
+import { useRouter } from "next/navigation";
+import { paths } from "@/paths";
 
 const ZenMaruGothic = Zen_Maru_Gothic({
   weight: ["400"],
@@ -55,8 +58,13 @@ const theme = createTheme({
 });
 
 const PatientModal = ({ data, IsActive, index, setIsActive }) => {
+  const router = useRouter();
   const handleOnButtonClick = () => {
     setIsActive(false);
+  };
+  const handleLinkClick = (link) => {
+    router.push(link);
+    console.log(data);
   };
   return (
     <Modal open={IsActive}>
@@ -119,36 +127,51 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
           <Grid item xs={7} container direction="column">
             <ThemeProvider theme={theme}>
               <Grid item xs={6}>
-                <Link href="/" style={{ height: "40%" }}>
+                <Box sx={{ height: "40%", cursor: "pointer" }}>
                   <Typography className={ZenMaruGothic.className}>
                     <img src={questionnaire.src} width="33px" />
                     問診表
                   </Typography>
-                </Link>
+                </Box>
               </Grid>
               <Grid item xs={6}>
-                <Link href="/" style={{ height: "40%" }}>
+                <Box
+                  sx={{ height: "40%", cursor: "pointer" }}
+                  onClick={() =>
+                    handleLinkClick(paths.chat.patient(data[index].id))
+                  }
+                >
                   <Typography className={ZenMaruGothic.className}>
                     <img src={chat.src} width="33px" />
                     チャット
                   </Typography>
-                </Link>
+                </Box>
               </Grid>
               <Grid item xs={6}>
-                <Link href="/" style={{ height: "40%" }}>
+                <Box
+                  sx={{ height: "40%", cursor: "pointer" }}
+                  onClick={() =>
+                    handleLinkClick(paths.record.input(data[index].id))
+                  }
+                >
                   <Typography className={ZenMaruGothic.className}>
                     <img src={medicalRecord1.src} width="33px" />
                     カルテ入力
                   </Typography>
-                </Link>
+                </Box>
               </Grid>
               <Grid item xs={6}>
-                <Link href="/" style={{ height: "40%" }}>
+                <Box
+                  sx={{ height: "40%", cursor: "pointer" }}
+                  onClick={() =>
+                    handleLinkClick(paths.record.output(data[index].id))
+                  }
+                >
                   <Typography className={ZenMaruGothic.className}>
                     <img src={medicalRecord2.src} width="33px" />
                     カルテ閲覧
                   </Typography>
-                </Link>
+                </Box>
               </Grid>
             </ThemeProvider>
           </Grid>

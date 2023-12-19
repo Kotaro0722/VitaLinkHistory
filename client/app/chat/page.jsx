@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import ChatButton from "@/components/chat/chatButton";
 import doctor from "@/public/img/doctor.svg";
@@ -8,7 +7,7 @@ import nurse from "@/public/img/nurse.svg";
 import { paths } from "@/paths";
 import { useRouter } from "next/navigation";
 
-const Dashboard = () => {
+const Page = () => {
   const router = useRouter();
   const handleGroupClick = () => {
     router.push(paths.chat.group);
@@ -62,10 +61,10 @@ const Dashboard = () => {
         }}
         onClick={handleGroupClick}
       >
-        グループ作成
+        グループ
       </Button>
     </Box>
   );
 };
 
-export default Dashboard;
+export default Page;

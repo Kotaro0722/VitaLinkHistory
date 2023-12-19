@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import PatientTable from "../../components/dashboard/patientTable";
 import Search from "../../components/dashboard/search";
@@ -103,8 +103,7 @@ const Dashboard = () => {
       <Typography
         sx={{
           fontSize: "45px",
-          pt: "20px",
-          pl: "20px",
+          textAlign: "center",
         }}
       >
         患者情報一覧

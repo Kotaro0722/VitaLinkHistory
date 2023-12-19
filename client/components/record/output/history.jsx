@@ -13,7 +13,6 @@ const History = ({ data }) => {
       sx={{
         overflowY: "scroll",
         msOverflowStyle: "none",
-        maxHeight: "473px",
         "::-webkit-scrollbar": { display: "none" },
       }}
     >

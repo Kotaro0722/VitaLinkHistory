@@ -36,11 +36,13 @@ const Search = ({ data, setData }) => {
             name: datum.name,
             belong: datum.belong,
             isVisible: true,
+            id: datum.id,
           }
         : {
             name: datum.name,
             belong: datum.belong,
             isVisible: false,
+            id: datum.id,
           };
     });
     setData(newData);

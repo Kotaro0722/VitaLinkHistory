@@ -1,4 +1,6 @@
 import History from "@/components/record/output/history";
+import { Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 const Page = ({ params }) => {
   const history = [
@@ -8,11 +10,12 @@ const Page = ({ params }) => {
         month: "12",
         day: "17",
       },
-      symptom: "喉が痛い 発熱",
+      symptom: "のどの痛み発熱",
       medicine: [
         { name: "ぺラックT錠", amount: 3, timing: "食後", note: "" },
         { name: "トローチ", amount: 3, timing: "就寝前", note: "" },
       ],
+      disease: "高血圧",
     },
     {
       date: {
@@ -63,7 +66,14 @@ const Page = ({ params }) => {
       ],
     },
   ];
-  return <History data={history} />;
+  return (
+    <Box sx={{ height: "99vh" }}>
+      <Typography sx={{ fontSize: "20px", textAlign: "center" }}>
+        過去の問診票
+      </Typography>
+      <History data={history} />
+    </Box>
+  );
 };
 
 export default Page;

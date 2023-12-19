@@ -1,6 +1,5 @@
 "use client";
 
-import { Inter } from "next/font/google";
 import {
   Grid,
   Paper,
@@ -10,9 +9,8 @@ import {
   createTheme,
   ThemeProvider,
 } from "@mui/material";
-import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
+import { paths } from "@/paths";
+import { useRouter } from "next/navigation";
 
 const theme = createTheme({
   components: {
@@ -30,12 +28,16 @@ const theme = createTheme({
 
 export default function RootLayout({ children }) {
   const sidebarWidth = "250px";
+  const router = useRouter();
+  const handleButtonClick = (link) => {
+    router.push(link);
+  };
   return (
     <html lang="en">
       <head>
-        <title>Dashbaord</title>
+        <title>チャット</title>
       </head>
-      <body className={inter.className}>
+      <body style={{ margin: "0px" }}>
         <Grid container>
           <Grid item minWidth={sidebarWidth}>
             <Paper
@@ -59,19 +61,37 @@ export default function RootLayout({ children }) {
                     gap: "20px",
                   }}
                 >
-                  <Link href="/dashboard">
-                    <Button variant="contained">患者情報一覧</Button>
-                  </Link>
-                  <Link href="/dashboard">
-                    <Button variant="contained">アカウント情報</Button>
-                  </Link>
-                  <Link href="/dashboard/questionTable">
-                    <Button variant="contained">患者からの質問</Button>
-                  </Link>
+                  <Button
+                    variant="contained"
+                    onClick={() => handleButtonClick(paths.dashboard.index)}
+                  >
+                    患者情報一覧
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => handleButtonClick(paths.dashboard.question)}
+                  >
+                    患者からの質問
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => handleButtonClick(paths.chat.index)}
+                  >
+                    チャット
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => handleButtonClick(paths.home)}
+                  >
+                    ホーム画面
+                  </Button>
                 </Box>
-                <Link href="/dashboard">
-                  <Button variant="contained">Logout</Button>
-                </Link>
+                <Button
+                  variant="contained"
+                  onClick={() => handleButtonClick(paths.login)}
+                >
+                  Logout
+                </Button>
               </ThemeProvider>
             </Paper>
           </Grid>

@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import Box from "@mui/material/Box";
 import TransitionButton from "@/components/home/transitionButton";
 import consultation from "@/public/img/consultation.svg";
@@ -15,6 +14,8 @@ const Page = () => {
         flexDirection: "column",
         justifyContent: "space-around",
         height: "98vh",
+        msOverflowStyle: "none",
+        "::-webkit-scrollbar": { display: "none" },
       }}
     >
       <Box

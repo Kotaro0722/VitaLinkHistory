@@ -3,17 +3,44 @@
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import Search from "@/components/chat/list/nurse/search";
+import { paths } from "@/paths";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const [lists, setLists] = useState([
-    { name: "鈴木太郎", belong: "茅野中央病院", isVisible: true },
-    { name: "田中花子", belong: "岡谷西医院", isVisible: true },
-    { name: "源次郎", belong: "諏訪東診療所", isVisible: true },
-    { name: "佐藤史郎", belong: "富士見南総合病院", isVisible: true },
+    {
+      name: "鈴木太郎",
+      belong: "茅野中央病院",
+      isVisible: true,
+      id: "awhiagaargb",
+    },
+    {
+      name: "田中花子",
+      belong: "岡谷西医院",
+      isVisible: true,
+      id: "ksbgaewejhb",
+    },
+    {
+      name: "源次郎",
+      belong: "諏訪東診療所",
+      isVisible: true,
+      id: "nvbragabjg",
+    },
+    {
+      name: "佐藤史郎",
+      belong: "富士見南総合病院",
+      isVisible: true,
+      id: "rtaabjhrbaj",
+    },
   ]);
-
+  const router = useRouter();
   const listsLength = lists.filter((list) => list.isVisible).length;
   const height = "100px";
+
+  const handleClick = (memberID) => {
+    router.push(paths.chat.medical(memberID));
+  };
+
   return (
     <Box sx={{ height: "100vh", backgroundColor: "white" }}>
       <Box
@@ -56,6 +83,7 @@ const Page = () => {
                     borderRadius: "20px",
                   }}
                   key={index}
+                  onClick={() => handleClick(list.id)}
                 >
                   {list.name}({list.belong})
                 </Box>

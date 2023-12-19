@@ -1,4 +1,4 @@
-import { Button, TextField, ThemeProvider, createTheme } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useRef } from "react";
 
 const TextInput = ({ setMessage }) => {

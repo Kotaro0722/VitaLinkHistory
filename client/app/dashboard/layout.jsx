@@ -1,6 +1,5 @@
 "use client";
 
-import { Inter } from "next/font/google";
 import {
   Grid,
   Paper,
@@ -10,11 +9,8 @@ import {
   createTheme,
   ThemeProvider,
 } from "@mui/material";
-import Link from "next/link";
 import { paths } from "@/paths";
 import { useRouter } from "next/navigation";
-
-const inter = Inter({ subsets: ["latin"] });
 
 const theme = createTheme({
   components: {
@@ -41,7 +37,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Dashbaord</title>
       </head>
-      <body className={inter.className}>
+      <body style={{ margin: "0px" }}>
         <Grid container>
           <Grid item minWidth={sidebarWidth}>
             <Paper

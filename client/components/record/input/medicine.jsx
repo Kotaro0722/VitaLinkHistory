@@ -1,10 +1,7 @@
 import {
   Box,
   Button,
-  MenuItem,
   Paper,
-  Select,
-  TextField,
   InputLabel,
   ThemeProvider,
   Typography,
@@ -18,7 +15,7 @@ import {
   Grid,
   NativeSelect,
 } from "@mui/material";
-import { useEffect, useRef, useState, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 
 const MedicineInput = ({ data, setData }) => {
   const medicineAmount = [1, 2, 3, 4];
@@ -53,7 +50,12 @@ const MedicineInput = ({ data, setData }) => {
 
   return (
     <Box
-      sx={{ border: "1px solid black", p: "10px 20px", borderRadius: "20px" }}
+      sx={{
+        border: "1px solid black",
+        p: "10px 20px",
+        borderRadius: "20px",
+        height: "40%",
+      }}
     >
       <ThemeProvider theme={theme}>
         <Grid container>
@@ -66,15 +68,6 @@ const MedicineInput = ({ data, setData }) => {
           <Grid item xs={6}>
             <FormControl>
               <FormLabel sx={{ mr: "5px" }}>一日服用量</FormLabel>
-              {/* <Select defaultValue={data.amount}>
-                {medicineAmount.map((amount, index) => {
-                  return (
-                    <MenuItem value={amount} key={index}>
-                      {amount}
-                    </MenuItem>
-                  );
-                })}
-              </Select> */}
               <NativeSelect defaultValue={0}>
                 {medicineAmount.map((amount, index) => {
                   return (
@@ -166,7 +159,6 @@ const Medicine = () => {
         scrollBottomRef.current.scrollIntoView({
           behavior: "smooth",
           block: "start",
-          // inline: "nearest",
         });
       }
     });
@@ -178,7 +170,7 @@ const Medicine = () => {
         sx={{
           p: "20px",
           overflowY: "scroll",
-          maxHeight: "473px",
+          maxHeight: "322px",
           msOverflowStyle: "none",
           "::-webkit-scrollbar": { display: "none" },
         }}

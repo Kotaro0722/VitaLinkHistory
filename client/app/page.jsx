@@ -14,6 +14,8 @@ const Page = () => {
         flexDirection: "column",
         justifyContent: "space-around",
         height: "98vh",
+        msOverflowStyle: "none",
+        "::-webkit-scrollbar": { display: "none" },
       }}
     >
       <Box

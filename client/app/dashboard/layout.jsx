@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
     router.push(link);
   };
   return (
-    <html lang="ja">
+    <html lang="en">
       <head>
         <title>Dashbaord</title>
       </head>

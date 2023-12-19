@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import Search from "@/components/chat/list/group/search";
+import { paths } from "@/paths";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const [lists, setLists] = useState([
@@ -63,11 +65,38 @@ const Page = () => {
       id: "pwpewgabwa",
     },
   ]);
+  const router = useRouter();
+  const [chatIDList, setChatIDList] = useState([
+    {
+      id: "grgniae",
+      member: [
+        {
+          name: "鈴木太郎",
+          belong: "茅野中央病院",
+          isVisible: true,
+          id: "awhiagaargb",
+        },
+        {
+          name: "田中花子",
+          belong: "岡谷西医院",
+          isVisible: true,
+          id: "ksbgaewejhb",
+        },
+        {
+          name: "永井敬",
+          belong: "諏訪東介護センター",
+          isVisible: true,
+          isSelected: false,
+          id: "uaiwegbae",
+        },
+      ],
+    },
+  ]);
 
   const listsLength = lists.filter((list) => list.isVisible).length;
   const height = "100px";
 
-  const onClick = (selectIndex) => {
+  const handleMemberClick = (selectIndex) => {
     const newList = {
       name: lists[selectIndex].name,
       belong: lists[selectIndex].belong,
@@ -77,6 +106,10 @@ const Page = () => {
     setLists(
       lists.map((list, index) => (selectIndex == index ? newList : list))
     );
+  };
+  const handleButtonClick = () => {
+    const chatID = "ahgiaega";
+    router.push(paths.chat.medical(chatID));
   };
 
   return (
@@ -122,7 +155,7 @@ const Page = () => {
                     backgroundColor: list.isSelected ? "#42B7DC" : "white",
                   }}
                   key={index}
-                  onClick={() => onClick(index)}
+                  onClick={() => handleMemberClick(index)}
                 >
                   {list.name}({list.belong})
                 </Box>
@@ -138,7 +171,11 @@ const Page = () => {
         )}
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center", mb: "5px" }}>
-        <Button variant="contained" sx={{ fontSize: "20px" }}>
+        <Button
+          variant="contained"
+          sx={{ fontSize: "20px" }}
+          onClick={handleButtonClick}
+        >
           作成
         </Button>
       </Box>

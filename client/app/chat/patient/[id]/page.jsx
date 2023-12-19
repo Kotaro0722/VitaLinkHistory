@@ -54,17 +54,17 @@ const Page = ({ params }) => {
   ]);
   const [chatHistory, setChatHistory] = useState([
     {
-      isPatient: true,
+      isDoctor: false,
       post_date: "2023/12/10-12:00",
       content: "腰を痛めて歩けません",
     },
     {
-      isPatient: false,
+      isDoctor: true,
       post_date: "2023/12/10-12:00",
       content: "一度病院へいらしてください",
     },
     {
-      isPatient: true,
+      isDoctor: false,
       post_date: "2023/12/10-12:00",
       content: "明日行きます。",
     },
@@ -86,12 +86,11 @@ const Page = ({ params }) => {
   useUpdateEffect(() => {
     if (message) {
       const newChat = {
-        isPatient: false,
+        isDoctor: "じぶん",
         post_date: "2023/12/10-12:00",
         content: message,
       };
       setChatHistory([...chatHistory, newChat]);
-      console.log(newChat);
     }
     scrollToBottom();
   }, [message]);
@@ -124,7 +123,7 @@ const Page = ({ params }) => {
         }}
       >
         {chatHistory.map((ch, index) => {
-          return <Chat text={ch.content} isMine={ch.isPatient} key={index} />;
+          return <Chat text={ch.content} isMine={ch.isDoctor} key={index} />;
         })}
         <Box ref={scrollBottomRef} />
       </Box>

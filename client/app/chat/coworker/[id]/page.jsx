@@ -100,7 +100,7 @@ const Page = ({ params }) => {
     {
       isMine: true,
       post_date: "2023/12/10-12:10",
-      content: "承知しました。ほかに変わった点などはありましたか？",
+      content: "承知しました。他に変わった点などはありましたか？",
     },
   ]);
   const scrollBottomRef = useRef(null);

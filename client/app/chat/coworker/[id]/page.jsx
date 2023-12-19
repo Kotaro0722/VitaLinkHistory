@@ -124,7 +124,6 @@ const Page = ({ params }) => {
         content: message,
       };
       setChatHistory([...chatHistory, newChat]);
-      console.log(newChat);
     }
     scrollToBottom();
     console.log(params);

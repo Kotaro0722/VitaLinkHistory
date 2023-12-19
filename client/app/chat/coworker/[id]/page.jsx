@@ -146,18 +146,47 @@ const Page = ({ params }) => {
     },
   ];
   const lists = chatLists.filter((chatList) => chatList.id == params.id)[0];
-  const [chatHistory, setChatHistory] = useState([
+  const ch1 = [
     {
-      isMine: false,
+      creator: "じぶん",
       post_date: "2023/12/10-12:00",
       content: "食欲がないとおっしゃられていたので、注意をお願いします。",
     },
     {
-      isMine: true,
+      creator: lists.name,
       post_date: "2023/12/10-12:10",
       content: "承知しました。他に変わった点などはありましたか？",
     },
-  ]);
+  ];
+  const ch2 = [
+    {
+      creator: "じぶん",
+      post_date: "2023/12/10-12:00",
+      content:
+        "明日の菊池さんの訪問診療の時間に手術の予定がはいってしまったため、訪問診療に行けませんのでよろしくお願いします。",
+    },
+    {
+      creator: "鈴木太郎",
+      post_date: "2023/12/10-12:10",
+      content: "承知しました。次の診療日はいつになりそうですか？",
+    },
+    {
+      creator: "じぶん",
+      post_date: "2023/12/10-12:10",
+      content: "来週の同じ時間は空いてますか？",
+    },
+    {
+      creator: "田中花子",
+      post_date: "2023/12/10-12:10",
+      content:
+        "その日のその時間に菊池さんは、施設にいないと聞いています。翌日は施設にいるので、翌日はどうでしょうか？",
+    },
+  ];
+  const [chatHistory, setChatHistory] = useState({
+    creator: "",
+    post_date: "",
+    content: "",
+  });
   const scrollBottomRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -170,6 +199,10 @@ const Page = ({ params }) => {
       }
     });
   };
+
+  useEffect(() => {
+    Array.isArray(lists.name) ? setChatHistory(ch2) : setChatHistory(ch1);
+  }, []);
 
   useUpdateEffect(() => {
     if (message) {
@@ -214,9 +247,19 @@ const Page = ({ params }) => {
           "::-webkit-scrollbar": { display: "none" },
         }}
       >
-        {chatHistory.map((ch, index) => {
-          return <Chat text={ch.content} isMine={ch.isMine} key={index} />;
-        })}
+        {Array.isArray(chatHistory) &&
+          typeof chatHistory[0].creator == "string" &&
+          chatHistory.map((ch, index) => {
+            console.log(ch.creator);
+            return (
+              <Chat
+                text={ch.content}
+                isMine={ch.creator == "じぶん"}
+                key={index}
+                creator={ch.creator}
+              />
+            );
+          })}
         <Box ref={scrollBottomRef} />
       </Box>
       <TextInput setMessage={setMessage} />

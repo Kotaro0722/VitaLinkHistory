@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Dashbaord</title>
+        <title>データ閲覧</title>
       </head>
       <body style={{ margin: "0px" }}>
         <Grid container>

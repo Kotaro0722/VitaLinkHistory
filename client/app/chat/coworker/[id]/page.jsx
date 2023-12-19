@@ -207,7 +207,7 @@ const Page = ({ params }) => {
   useUpdateEffect(() => {
     if (message) {
       const newChat = {
-        isMine: false,
+        creator: "じぶん",
         post_date: "2023/12/10-12:00",
         content: message,
       };

@@ -8,6 +8,7 @@ const Chat = ({ text, isMine, creator }) => {
           margin: isMine ? "0 20px 0 auto" : "0 auto 0 20px",
           textAlign: isMine ? "right" : "left",
           fontSize: "20px",
+          display: isMine ? "none" : "block",
         }}
       >
         {creator}

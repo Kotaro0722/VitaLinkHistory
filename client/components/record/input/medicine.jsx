@@ -55,7 +55,6 @@ const MedicineInput = ({ data, setData }) => {
         p: "10px 20px",
         borderRadius: "20px",
         height: "40%",
-        maxHeight: "322px",
       }}
     >
       <ThemeProvider theme={theme}>
@@ -171,7 +170,7 @@ const Medicine = () => {
         sx={{
           p: "20px",
           overflowY: "scroll",
-          maxHeight: "473px",
+          maxHeight: "322px",
           msOverflowStyle: "none",
           "::-webkit-scrollbar": { display: "none" },
         }}

@@ -13,6 +13,7 @@ import questionnaire from "@/public/img/questionnaire.svg";
 import chat from "@/public/img/chat.svg";
 import medicalRecord1 from "@/public/img/medicalRecord1.svg";
 import medicalRecord2 from "@/public/img/medicalRecord2.svg";
+import interviewIcon from "@/public/img/interview.svg";
 import { Zen_Maru_Gothic } from "next/font/google";
 import peke from "@/public/img/peke.svg";
 import { useRouter } from "next/navigation";
@@ -124,15 +125,33 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
           </Grid>
           <Grid item xs={7} container direction="column">
             <ThemeProvider theme={theme}>
-              <Grid item xs={6}>
-                <Box sx={{ height: "40%", cursor: "pointer" }}>
+              <Grid item xs={4}>
+                <Box
+                  sx={{ height: "40%", cursor: "pointer" }}
+                  onClick={() =>
+                    handleLinkClick(paths.record.interview(data[index].id))
+                  }
+                >
                   <Typography className={ZenMaruGothic.className}>
                     <img src={questionnaire.src} width="33px" />
-                    問診表
+                    問診表入力
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={4}>
+                <Box
+                  sx={{ height: "40%", cursor: "pointer" }}
+                  onClick={() =>
+                    handleLinkClick(paths.record.history(data[index].id))
+                  }
+                >
+                  <Typography className={ZenMaruGothic.className}>
+                    <img src={questionnaire.src} width="33px" />
+                    問診票閲覧
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={4}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>
@@ -145,7 +164,7 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={4}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>
@@ -158,7 +177,20 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={4}>
+                <Box
+                  sx={{ height: "40%", cursor: "pointer" }}
+                  onClick={() =>
+                    handleLinkClick(paths.record.cooperation(data[index].id))
+                  }
+                >
+                  <Typography className={ZenMaruGothic.className}>
+                    <img src={medicalRecord2.src} width="33px" />
+                    連携シート
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={4}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>

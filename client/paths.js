@@ -16,5 +16,8 @@ export const paths = {
     cooperation: (id) => `/record/cooperation/${id}`,
     input: (id) => `/record/input/${id}`,
     output: (id) => `/record/output/${id}`,
+    interview: (id) => `record/interview/${id}`,
+    history: (id) => `record/history/${id}`,
+    cooperation: (id) => `record/cooperation/${id}`,
   },
 };

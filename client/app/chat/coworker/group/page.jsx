@@ -11,6 +11,7 @@ import {
   Paper,
   Box,
   Typography,
+  Button,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { paths } from "@/paths";
@@ -110,6 +111,10 @@ const Page = () => {
     router.push(paths.chat.medical(link));
   };
 
+  const handleButtonClick = () => {
+    router.push(paths.chat.makegroup);
+  };
+
   const visibleLength = data.filter((datum) => datum.isVisible).length;
 
   return (
@@ -198,6 +203,11 @@ const Page = () => {
           onPageChange={handleChangePage}
         />
       </Paper>
+      <Box sx={{ display: "flex", justifyContent: "center", mt: "20px" }}>
+        <Button onClick={handleButtonClick} variant="contained">
+          グループ作成
+        </Button>
+      </Box>
     </Box>
   );
 };

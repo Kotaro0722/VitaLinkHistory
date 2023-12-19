@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Chat from "@/components/chat/patient/chat";
 import TextInput from "@/components/chat/patient/textInput";
 import { useUpdateEffect } from "react-use";
@@ -32,6 +32,61 @@ const Page = ({ params }) => {
           id: "uaiwegbae",
         },
       ],
+      isVisible: true,
+    },
+    {
+      id: "agnlaerg",
+      name: [
+        {
+          name: "源次郎",
+          belong: "諏訪東診療所",
+          isVisible: true,
+          isSelected: false,
+          id: "nvbragabjg",
+        },
+        {
+          name: "伊藤佳代子",
+          belong: "茅野中央介護センター",
+          isVisible: true,
+          isSelected: false,
+          id: "chbfawebtaw",
+        },
+        {
+          name: "本田翼",
+          belong: "富士見南介護センター",
+          isVisible: true,
+          isSelected: false,
+          id: "pwpewgabwa",
+        },
+      ],
+      isVisible: true,
+    },
+    {
+      id: "arnalnja",
+      name: [
+        {
+          name: "鈴木太郎",
+          belong: "茅野中央病院",
+          isVisible: true,
+          isSelected: false,
+          id: "awhiagaargb",
+        },
+        {
+          name: "源次郎",
+          belong: "諏訪東診療所",
+          isVisible: true,
+          isSelected: false,
+          id: "nvbragabjg",
+        },
+        {
+          name: "東南",
+          belong: "岡谷西介護センター",
+          isVisible: true,
+          isSelected: false,
+          id: "jgsegaiebga",
+        },
+      ],
+      isVisible: true,
     },
     {
       name: "鈴木太郎",
@@ -90,7 +145,7 @@ const Page = ({ params }) => {
       id: "pwpewgabwa",
     },
   ];
-  const lists = chatLists.filter((chatList) => chatList.id == params.id);
+  const lists = chatLists.filter((chatList) => chatList.id == params.id)[0];
   const [chatHistory, setChatHistory] = useState([
     {
       isMine: false,
@@ -126,7 +181,6 @@ const Page = ({ params }) => {
       setChatHistory([...chatHistory, newChat]);
     }
     scrollToBottom();
-    console.log(params);
   }, [message]);
 
   useLayoutEffect(() => {
@@ -146,9 +200,11 @@ const Page = ({ params }) => {
           mb: "20px",
         }}
       >
-        {lists.map((m) => {
-          return m.name + "さん ";
-        })}
+        {Array.isArray(lists.name)
+          ? lists.name.map((namae) => {
+              return namae.name + "さん    ";
+            })
+          : lists.name + "さん"}
       </Typography>
       <Box
         sx={{

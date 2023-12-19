@@ -84,7 +84,6 @@ const Page = ({ params }) => {
         scrollBottomRef.current.scrollIntoView({
           behavior: "smooth",
           block: "start",
-          // inline: "nearest",
         });
       }
     });

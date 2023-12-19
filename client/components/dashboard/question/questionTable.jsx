@@ -2,19 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TablePagination,
-  TableRow,
-  Paper,
   Box,
   Typography,
   createTheme,
   ThemeProvider,
-  Grid,
-  Button,
   IconButton,
 } from "@mui/material";
 import exclamation from "@/public/img/exclamation.svg";
@@ -51,7 +42,6 @@ const QuestionTable = ({ data, setData }) => {
   const [page, setPage] = useState(0);
   const [showPerson, setShowPerson] = useState(0);
   const rowsPerPage = 5;
-  console.log(data.length / rowsPerPage);
   const router = useRouter();
 
   const theme = createTheme({
@@ -96,7 +86,6 @@ const QuestionTable = ({ data, setData }) => {
               setShowPerson(index);
               router.push(paths.chat.patient(datum.id));
             };
-            console.log(rowsPerPage * (page + 1) > index);
             return (
               rowsPerPage * page <= index &&
               rowsPerPage * (page + 1) > index && (

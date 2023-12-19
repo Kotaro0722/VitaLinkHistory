@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Modal,
   Grid,
@@ -9,7 +8,6 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import photo from "@/public/img/personImg.svg";
 import questionnaire from "@/public/img/questionnaire.svg";
 import chat from "@/public/img/chat.svg";

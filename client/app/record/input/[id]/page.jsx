@@ -205,19 +205,14 @@ const Page = ({ params }) => {
         backgroundColor: "#9BC3FF",
         height: "100vh",
       }}
-      //画面全体
     >
       <ThemeProvider theme={theme}>
-        <Box
-          sx={{ display: "flex", alignItems: "center" }}
-          //自動入力欄
-        >
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box
             sx={{
               display: "flex",
               width: "30%",
             }}
-            //名前
           >
             <Box sx={{ width: "30%", minWidth: "110px" }}>
               <Typography
@@ -236,9 +231,7 @@ const Page = ({ params }) => {
               <Typography>{patientData.name}</Typography>
             </Box>
           </Box>
-          <Box
-          //性別
-          >
+          <Box>
             <Typography
               sx={{
                 height: sexHeight,
@@ -252,20 +245,14 @@ const Page = ({ params }) => {
               {patientData.sex}
             </Typography>
           </Box>
-          <Box
-            sx={{ minWidth: "200px", width: "30%" }}
-            //生年月日
-          >
+          <Box sx={{ minWidth: "200px", width: "30%" }}>
             <Typography sx={{ borderBottom: "none" }}>生年月日</Typography>
             <Typography>
               西暦 {patientData.birth.year}年 {patientData.birth.month}月{" "}
               {patientData.birth.day}日
             </Typography>
           </Box>
-          <Box
-            sx={{ width: "100px" }}
-            //年齢
-          >
+          <Box sx={{ width: "100px" }}>
             <Typography sx={{ borderBottom: "none" }}>年齢</Typography>
             <Typography>{age}</Typography>
           </Box>

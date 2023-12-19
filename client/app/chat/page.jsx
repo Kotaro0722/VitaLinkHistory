@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import ChatButton from "@/components/chat/chatButton";
 import doctor from "@/public/img/doctor.svg";

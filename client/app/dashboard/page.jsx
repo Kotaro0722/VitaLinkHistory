@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import PatientTable from "../../components/dashboard/patientTable";
 import Search from "../../components/dashboard/search";

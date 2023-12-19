@@ -51,9 +51,6 @@ const Question = () => {
   ]);
   return (
     <>
-      {/* <head>
-        <title>患者からの質問</title>
-      </head> */}
       <Box
         sx={{
           width: "100%",

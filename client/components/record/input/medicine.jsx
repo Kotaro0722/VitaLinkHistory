@@ -1,10 +1,7 @@
 import {
   Box,
   Button,
-  MenuItem,
   Paper,
-  Select,
-  TextField,
   InputLabel,
   ThemeProvider,
   Typography,
@@ -18,7 +15,7 @@ import {
   Grid,
   NativeSelect,
 } from "@mui/material";
-import { useEffect, useRef, useState, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 
 const MedicineInput = ({ data, setData }) => {
   const medicineAmount = [1, 2, 3, 4];
@@ -66,15 +63,6 @@ const MedicineInput = ({ data, setData }) => {
           <Grid item xs={6}>
             <FormControl>
               <FormLabel sx={{ mr: "5px" }}>一日服用量</FormLabel>
-              {/* <Select defaultValue={data.amount}>
-                {medicineAmount.map((amount, index) => {
-                  return (
-                    <MenuItem value={amount} key={index}>
-                      {amount}
-                    </MenuItem>
-                  );
-                })}
-              </Select> */}
               <NativeSelect defaultValue={0}>
                 {medicineAmount.map((amount, index) => {
                   return (
@@ -166,7 +154,6 @@ const Medicine = () => {
         scrollBottomRef.current.scrollIntoView({
           behavior: "smooth",
           block: "start",
-          // inline: "nearest",
         });
       }
     });

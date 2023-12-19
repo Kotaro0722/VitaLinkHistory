@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import Box from "@mui/material/Box";
 import TransitionButton from "@/components/home/transitionButton";
 import consultation from "@/public/img/consultation.svg";

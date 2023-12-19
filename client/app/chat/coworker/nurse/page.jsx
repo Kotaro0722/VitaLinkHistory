@@ -6,10 +6,30 @@ import Search from "@/components/chat/list/nurse/search";
 
 const Page = () => {
   const [lists, setLists] = useState([
-    { name: "鈴木太郎", belong: "茅野中央介護センター", isVisible: true },
-    { name: "田中花子", belong: "岡谷西介護センター", isVisible: true },
-    { name: "源次郎", belong: "諏訪東介護センター", isVisible: true },
-    { name: "佐藤史郎", belong: "富士見南介護センター", isVisible: true },
+    {
+      name: "伊藤佳代子",
+      belong: "茅野中央介護センター",
+      isVisible: true,
+      id: "chbfawebtaw",
+    },
+    {
+      name: "東南",
+      belong: "岡谷西介護センター",
+      isVisible: true,
+      id: "jgsegaiebga",
+    },
+    {
+      name: "永井敬",
+      belong: "諏訪東介護センター",
+      isVisible: true,
+      id: "uaiwegbae",
+    },
+    {
+      name: "本田翼",
+      belong: "富士見南介護センター",
+      isVisible: true,
+      id: "pwpewgabwa",
+    },
   ]);
 
   const listsLength = lists.filter((list) => list.isVisible).length;

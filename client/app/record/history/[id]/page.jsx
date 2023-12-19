@@ -1,5 +1,8 @@
-import History from "@/components/record/output/history";
+const History = lazy(() => import("@/components/record/output/history"));
+
+// import History from "@/components/record/output/history";
 import { Typography } from "@mui/material";
+import { lazy } from "react";
 
 const Page = ({ params }) => {
   const history = [

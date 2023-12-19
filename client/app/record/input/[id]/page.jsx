@@ -263,7 +263,16 @@ const Page = ({ params }) => {
         sx={{ mt: "20px", height: "calc(100% - 80px - 20px - 36px)" }}
         spacing={2}
       >
-        <Grid item xs={6}>
+        <Grid
+          item
+          xs={6}
+          sx={{
+            maxHeight: "473px",
+            overflowY: "scroll",
+            msOverflowStyle: "none",
+            "::-webkit-scrollbar": { display: "none" },
+          }}
+        >
           <History data={history} />
         </Grid>
         <Grid

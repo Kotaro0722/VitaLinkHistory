@@ -1,8 +1,6 @@
-const History = lazy(() => import("@/components/record/output/history"));
-
-// import History from "@/components/record/output/history";
+import History from "@/components/record/output/history";
 import { Typography } from "@mui/material";
-import { lazy } from "react";
+import { Box } from "@mui/material";
 
 const Page = ({ params }) => {
   const history = [
@@ -69,12 +67,12 @@ const Page = ({ params }) => {
     },
   ];
   return (
-    <>
+    <Box sx={{ height: "99vh" }}>
       <Typography sx={{ fontSize: "20px", textAlign: "center" }}>
         過去の問診票
       </Typography>
       <History data={history} />
-    </>
+    </Box>
   );
 };
 

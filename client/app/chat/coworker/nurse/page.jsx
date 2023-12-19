@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import Search from "@/components/chat/list/nurse/search";
+import { paths } from "@/paths";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const [lists, setLists] = useState([
@@ -32,8 +34,14 @@ const Page = () => {
     },
   ]);
 
+  const router = useRouter();
   const listsLength = lists.filter((list) => list.isVisible).length;
   const height = "100px";
+
+  const handleClick = (memberID) => {
+    router.push(paths.chat.medical(memberID));
+  };
+
   return (
     <Box sx={{ height: "100vh", backgroundColor: "white" }}>
       <Box
@@ -76,6 +84,7 @@ const Page = () => {
                     borderRadius: "20px",
                   }}
                   key={index}
+                  onClick={() => handleClick(list.id)}
                 >
                   {list.name}({list.belong})
                 </Box>

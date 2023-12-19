@@ -29,7 +29,6 @@ const Symptom = () => {
             height: "calc(100% - 37.5px - 20px)",
           }}
           multiline
-          rows={7}
         />
       </Paper>
     </ThemeProvider>

@@ -203,7 +203,7 @@ const Page = ({ params }) => {
       sx={{
         p: "20px",
         backgroundColor: "#9BC3FF",
-        height: "100vh",
+        height: "94.4vh",
       }}
     >
       <ThemeProvider theme={theme}>

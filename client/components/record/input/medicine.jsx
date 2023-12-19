@@ -50,7 +50,13 @@ const MedicineInput = ({ data, setData }) => {
 
   return (
     <Box
-      sx={{ border: "1px solid black", p: "10px 20px", borderRadius: "20px" }}
+      sx={{
+        border: "1px solid black",
+        p: "10px 20px",
+        borderRadius: "20px",
+        height: "40%",
+        maxHeight: "322px",
+      }}
     >
       <ThemeProvider theme={theme}>
         <Grid container>

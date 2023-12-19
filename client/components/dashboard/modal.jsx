@@ -124,7 +124,7 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
           </Grid>
           <Grid item xs={7} container direction="column">
             <ThemeProvider theme={theme}>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>
@@ -137,7 +137,7 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>
@@ -150,7 +150,7 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>
@@ -163,7 +163,7 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={4}>
+              {/* <Grid item xs={4}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>
@@ -175,8 +175,8 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
                     カルテ入力
                   </Typography>
                 </Box>
-              </Grid>
-              <Grid item xs={4}>
+              </Grid> */}
+              <Grid item xs={6}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>
@@ -189,7 +189,7 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={4}>
+              {/* <Grid item xs={4}>
                 <Box
                   sx={{ height: "40%", cursor: "pointer" }}
                   onClick={() =>
@@ -201,7 +201,7 @@ const PatientModal = ({ data, IsActive, index, setIsActive }) => {
                     カルテ閲覧
                   </Typography>
                 </Box>
-              </Grid>
+              </Grid> */}
             </ThemeProvider>
           </Grid>
         </Grid>

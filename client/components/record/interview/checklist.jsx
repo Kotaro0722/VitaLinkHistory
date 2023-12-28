@@ -8,7 +8,7 @@ import {
 
 const CheckList = ({ title, data, setData }) => {
   return (
-    <FormControl sx={{ border: "1px solid black" }}>
+    <FormControl sx={{ border: "1px solid black", p: "5px" }}>
       <Typography>{title}</Typography>
       <FormGroup sx={{ display: "block", pl: "10px" }}>
         {data.map((datum, index) => {

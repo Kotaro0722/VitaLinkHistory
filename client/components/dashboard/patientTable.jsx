@@ -72,11 +72,20 @@ const PatientTable = ({ data }) => {
                           border: "0px",
                         }}
                       ></TableCell>
-                      <TableCell component="td" scope="datum" padding="none">
+                      <TableCell
+                        component="td"
+                        scope="datum"
+                        padding="none"
+                        sx={{ fontSize: "20px" }}
+                      >
                         {datum.name}
                       </TableCell>
-                      <TableCell align="center">{datum.address.city}</TableCell>
-                      <TableCell align="center">{datum.address.town}</TableCell>
+                      <TableCell align="center" sx={{ fontSize: "20px" }}>
+                        {datum.address.city}
+                      </TableCell>
+                      <TableCell align="center" sx={{ fontSize: "20px" }}>
+                        {datum.address.town}
+                      </TableCell>
                       <TableCell
                         sx={{
                           width: "10px",

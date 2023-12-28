@@ -5,6 +5,7 @@ import { Box, Button } from "@mui/material";
 import { useState } from "react";
 import { paths } from "@/paths";
 import { useRouter } from "next/navigation";
+import RadioList from "@/components/record/interview/radiolist";
 
 const Page = ({ params }) => {
   const router = useRouter();
@@ -75,14 +76,14 @@ const Page = ({ params }) => {
       <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
         <CheckList title="症状" data={symptoms} setData={setSymptom} />
         <CheckList title="罹患した病気" data={sicks} setData={setSick} />
-        <CheckList
+        <RadioList
           title="服用中の薬剤"
           data={medicines}
           setData={setMedicine}
         />
-        <CheckList title="アレルギー" data={allergy} setData={setAllergy} />
-        <CheckList title="お酒" data={alcohol} setData={setAlcohol} />
-        <CheckList title="たばこ" data={tabacco} setData={setTabacco} />
+        <RadioList title="アレルギー" data={allergy} setData={setAllergy} />
+        <RadioList title="お酒" data={alcohol} setData={setAlcohol} />
+        <RadioList title="たばこ" data={tabacco} setData={setTabacco} />
         <CheckList title="女性のみ" data={female} setData={setFemale} />
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>

@@ -18,7 +18,6 @@ const QuestionTable = ({ data }) => {
   const router = useRouter();
   const [page, setPage] = useState(0);
   const rowsPerPage = 10;
-  const now = new Date();
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -26,8 +25,30 @@ const QuestionTable = ({ data }) => {
 
   return (
     <>
-      <Paper sx={{ width: "600px", mx: "auto", mt: "30px" }}>
+      <Paper sx={{ width: "700px", mx: "auto", mt: "30px" }}>
         <Table aria-labelledby="tableTitle">
+          <TableHead
+            sx={{
+              backgroundColor: "#4169e1",
+            }}
+          >
+            <TableRow
+              sx={{
+                backgroundColor: "#d3d3d3",
+              }}
+            >
+              <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
+              <TableCell sx={{ p: "8px" }}></TableCell>
+              <TableCell sx={{ p: "8px" }}>患者名</TableCell>
+              <TableCell sx={{ p: "8px" }} align="center">
+                内容
+              </TableCell>
+              <TableCell sx={{ p: "8px" }} align="center">
+                投稿日
+              </TableCell>
+              <TableCell sx={{ width: "20px", p: "0px" }}></TableCell>
+            </TableRow>
+          </TableHead>
           <TableBody>
             {data.map((datum, index) => {
               const handleRowClick = () => {
@@ -54,11 +75,20 @@ const QuestionTable = ({ data }) => {
                       style={{ width: "30px" }}
                     />
                   </TableCell>
-                  <TableCell component="td" scope="datum" padding="none">
+                  <TableCell
+                    component="td"
+                    scope="datum"
+                    padding="none"
+                    sx={{ fontSize: "20px" }}
+                  >
                     {datum.name}
                   </TableCell>
-                  <TableCell align="center">{datum.content}</TableCell>
-                  <TableCell align="center">二日前</TableCell>
+                  <TableCell align="center" sx={{ fontSize: "20px" }}>
+                    {datum.content}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: "20px" }}>
+                    二日前
+                  </TableCell>
                   <TableCell
                     sx={{
                       width: "10px",

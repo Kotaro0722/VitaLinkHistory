@@ -25,7 +25,8 @@ const Page = () => {
     >
       <Typography
         sx={{
-          fontSize: "40px",
+          fontSize: "45px",
+          py: "20px",
           backgroundColor: "#0085FF",
           width: "100%",
           color: "white",

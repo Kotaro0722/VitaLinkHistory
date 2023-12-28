@@ -19,7 +19,7 @@ const SignInSide = () => {
     event.preventDefault();
   };
   const handleButton = () => {
-    router.push(paths.home);
+    router.push(paths.dashboard.index);
   };
 
   return (

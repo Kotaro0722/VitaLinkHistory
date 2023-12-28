@@ -79,12 +79,6 @@ export default function RootLayout({ children }) {
                   >
                     チャット
                   </Button>
-                  <Button
-                    variant="contained"
-                    onClick={() => handleButtonClick(paths.home)}
-                  >
-                    ホーム画面
-                  </Button>
                 </Box>
                 <Button
                   variant="contained"

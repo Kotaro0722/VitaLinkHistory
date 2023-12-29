@@ -97,13 +97,17 @@ const Dashboard = () => {
       sx={{
         width: "100%",
         height: "100vh",
-        backgroundColor: "#9BC3FF",
+        backgroundColor: "whitesmoke",
       }}
     >
       <Typography
         sx={{
           fontSize: "45px",
+          p: "20px",
           textAlign: "center",
+          backgroundColor: "#0085FF",
+          color: "white",
+          mb: "10px",
         }}
       >
         患者情報一覧
